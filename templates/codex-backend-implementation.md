@@ -1,32 +1,50 @@
 # Codex Backend Implementation Prompt
 
-Use this prompt for P1 or later backend work.
+Use this prompt for backend work in the active roadmap phase.
 
 ```text
 You are working in the ai-app-starter-swiftui-fastapi repository.
 
-Goal:
-Implement the next backend task for the current roadmap phase.
+Purpose:
+Implement the next backend task while preserving local-first safety.
 
-Rules:
-- Stay within the requested phase.
-- Do not connect to production databases.
-- Do not create real secrets.
-- Use placeholder values only in .env.example.
-- Do not commit, push, deploy, or call external APIs without explicit confirmation.
-- Keep the diff small and testable.
+Scope:
+- Stay within the requested milestone.
+- Keep FastAPI, SQLAlchemy, Alembic, auth, and tests aligned.
+- Update docs when behavior changes.
 
-Before editing:
-- Inspect backend/README.md.
-- Inspect docs/backend-design.md.
-- Inspect docs/auth-design.md if authentication is relevant.
-- Inspect progress.md.
+Files to inspect:
+- CODEX.md
+- backend/README.md
+- backend/pyproject.toml
+- backend/app/
+- backend/tests/
+- docs/backend-design.md
+- docs/auth-design.md, if auth is involved
+- progress.md
 
-Expected output:
+Allowed actions:
+- Edit backend code and tests for the requested phase.
+- Run local pytest.
+- Use placeholder-only config examples.
+
+Forbidden actions:
+- production or external DB connection
+- real user data writes
+- real secrets or production URLs
+- git add / commit / push
+- deploy, release, or external API calls
+- docker compose down -v without explicit approval
+
+Human confirmation rules:
+Before any side effect outside local test/dev work, present target, operation details, impact scope, and rollback plan.
+
+Output format:
 1. Files changed
-2. Implementation summary
+2. Backend implementation summary
 3. Tests added or updated
 4. Commands run
-5. Remaining risks
-6. Suggested progress.md updates
+5. Secret/safety result
+6. Remaining risks
+7. Recommended next action
 ```

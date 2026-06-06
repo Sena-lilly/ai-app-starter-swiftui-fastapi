@@ -2,7 +2,7 @@
 
 A production-minded starter kit for indie developers building iOS apps with SwiftUI, FastAPI, PostgreSQL, JWT authentication, Docker Compose, and Codex-friendly workflows.
 
-This repository is currently completed through **P4-A Docker PostgreSQL MVP**. It contains repository design, documentation, a minimal runnable FastAPI backend, backend signup/login/users/me auth endpoints, local-only SQLite auth tests, configuration scaffolding, a SwiftUI app that can check backend health, log in, sign up, store an access token in Keychain, restore `/users/me`, and log out, plus local-only Docker Compose/PostgreSQL setup with Alembic migrations. Refresh tokens, production deployment, and release readiness are intentionally deferred to later phases.
+This repository is currently completed through **P5 Codex Workflow Integration**. It contains repository design, documentation, a minimal runnable FastAPI backend, backend signup/login/users/me auth endpoints, local-only SQLite auth tests, configuration scaffolding, a SwiftUI app that can check backend health, log in, sign up, store an access token in Keychain, restore `/users/me`, and log out, local-only Docker Compose/PostgreSQL setup with Alembic migrations, and reusable Codex-safe workflow guidance. Refresh tokens, production deployment, and release readiness are intentionally deferred to later phases.
 
 ## What is this?
 
@@ -45,7 +45,9 @@ The repository currently includes:
 - SwiftUI app with local auth flow under `ios/`
 - Local-only Docker Compose/PostgreSQL setup
 - Minimal Alembic migration for the current `users` table
-- Prompt templates for future Codex implementation phases
+- Codex-safe workflow guidance in [CODEX.md](CODEX.md)
+- AI coding agent role templates in [AGENTS.md](AGENTS.md)
+- Reusable prompt templates in [templates/](templates/)
 
 Future phases will add:
 
@@ -125,6 +127,16 @@ This project is related to [codex-app-workflow](https://github.com/Sena-lilly/co
 `ai-app-starter-swiftui-fastapi` is a working starter kit that applies those workflows to a SwiftUI + FastAPI + PostgreSQL app stack.
 
 This repository should remain usable on its own. It may reference `codex-app-workflow` for process ideas, but it must not require that repository to run, build, test, or release.
+
+## Codex-safe workflow
+
+Codex-safe workflow is a first-class part of this project.
+
+- Read [CODEX.md](CODEX.md) before asking Codex or another AI coding assistant to modify the repository.
+- Use [AGENTS.md](AGENTS.md) to choose a review or implementation role.
+- Use [docs/codex-workflow.md](docs/codex-workflow.md) and [templates/](templates/) for phase-based prompts, review prompts, handoffs, and safety footers.
+
+These workflow files are inspired by `codex-app-workflow`, but this repository remains independently usable.
 
 ## Safety rules
 

@@ -128,6 +128,20 @@ Future iOS development should add:
 
 `docker compose down -v` deletes the local PostgreSQL named volume and all local test data inside it. Do not run volume deletion unless you intend to reset local test data. Never use this against production infrastructure.
 
+## Docker troubleshooting
+
+If Docker commands are unavailable, install and start Docker Desktop or another Docker runtime, then confirm `docker --version` and `docker compose version`.
+
+If port `8000` or `5432` is already in use, stop the conflicting local process before starting Compose. Do not change the Compose ports to public interfaces.
+
+If the backend starts before migrations have run, execute:
+
+```bash
+docker compose exec backend alembic upgrade head
+```
+
+If local PostgreSQL test data becomes confusing, prefer creating a new fake local account. Do not run `docker compose down -v` unless you explicitly intend to delete the local PostgreSQL volume.
+
 ## Local-only rule
 
 Local development commands should not deploy, push, release, call paid services, or connect to production databases.

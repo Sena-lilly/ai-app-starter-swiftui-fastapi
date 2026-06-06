@@ -24,7 +24,7 @@ Add Docker Compose for local development, including PostgreSQL and backend servi
 
 ## P5 Codex Workflow Integration
 
-Add more detailed Codex prompts, dry-run workflows, review checklists, and examples inspired by `codex-app-workflow`.
+Add more detailed Codex prompts, dry-run workflows, review checklists, role templates, handoff templates, and examples inspired by `codex-app-workflow`.
 
 ## P6 Testing / Release Readiness
 

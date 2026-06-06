@@ -59,16 +59,16 @@ This file tracks the phase roadmap for `ai-app-starter-swiftui-fastapi`.
 - [x] Add PostgreSQL local service
 - [x] Add migration workflow
 - [x] Add local reset instructions with safety warnings
-- [ ] Add Docker troubleshooting notes
-- [ ] Complete P4-B Docker/PostgreSQL integration review
+- [x] Add Docker troubleshooting notes
+- [x] Complete P4-B Docker/PostgreSQL integration review
 
 ## P5 Codex Workflow Integration
 
-- [ ] Add Codex task prompts for common changes
-- [ ] Add implementation guardrails
-- [ ] Add review and dry-run checklists
-- [ ] Add workflow examples based on `codex-app-workflow`
-- [ ] Ensure this repository remains independently usable
+- [x] Add Codex task prompts for common changes
+- [x] Add implementation guardrails
+- [x] Add review and dry-run checklists
+- [x] Add workflow examples based on `codex-app-workflow`
+- [x] Ensure this repository remains independently usable
 
 ## P6 Testing / Release Readiness
 

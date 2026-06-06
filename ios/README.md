@@ -98,6 +98,6 @@ Do not add production URLs or secrets.
 
 ## Next step
 
-P4 will add Docker Compose and local PostgreSQL setup.
+P6 will add broader testing and release-readiness work. P5 Codex workflow guidance is available in [../CODEX.md](../CODEX.md).
 
 See [../docs/ios-design.md](../docs/ios-design.md).

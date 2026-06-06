@@ -1,6 +1,6 @@
 # Quick Start
 
-This project is currently completed through P4-A Docker PostgreSQL MVP. The backend can run locally with health and auth endpoints, the SwiftUI app can call health, signup, login, store the access token in Keychain, restore `/users/me`, and logout, and Docker Compose can run a local PostgreSQL-backed backend with Alembic migrations.
+This project is currently completed through P5 Codex Workflow Integration. The backend can run locally with health and auth endpoints, the SwiftUI app can call health, signup, login, store the access token in Keychain, restore `/users/me`, and logout, Docker Compose can run a local PostgreSQL-backed backend with Alembic migrations, and Codex-safe workflow guidance is available in [../CODEX.md](../CODEX.md).
 
 ## P0 quick start
 

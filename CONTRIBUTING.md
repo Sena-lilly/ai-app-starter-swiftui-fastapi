@@ -2,7 +2,7 @@
 
 Thank you for your interest in contributing to `ai-app-starter-swiftui-fastapi`.
 
-This project is phase-driven. It is currently completed through P4-A Docker PostgreSQL MVP and remains pre-v0.1.0. Contributions should match the active roadmap phase and avoid presenting unfinished local-development features as production-ready.
+This project is phase-driven. It is currently completed through P5 Codex Workflow Integration and remains pre-v0.1.0. Contributions should match the active roadmap phase and avoid presenting unfinished local-development features as production-ready.
 
 ## Development principles
 
@@ -13,6 +13,7 @@ This project is phase-driven. It is currently completed through P4-A Docker Post
 - Use placeholders and `.env.example` for future configuration examples.
 - Favor test-first implementation once code phases begin.
 - Match the existing repository style and phase roadmap.
+- If you use Codex or another AI coding assistant, follow [CODEX.md](CODEX.md).
 
 ## Safety requirements
 
@@ -46,6 +47,7 @@ Pull requests should include:
 - The related roadmap phase
 - Testing or verification performed
 - Security considerations, when relevant
+- AI-assisted change notes, when relevant
 - Any known limitations
 
 ## Phase discipline
@@ -56,6 +58,8 @@ The roadmap is intentionally incremental:
 - P1 starts the backend MVP.
 - P2 starts the iOS MVP.
 - P3 adds the authentication flow.
-- Later phases add Docker, workflow integration, tests, examples, and release readiness.
+- P4 adds Docker and local PostgreSQL.
+- P5 adds Codex-safe workflow integration.
+- Later phases add broader tests, examples, and release readiness.
 
 Please avoid skipping ahead unless the roadmap has been updated first.

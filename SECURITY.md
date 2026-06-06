@@ -4,7 +4,7 @@ Security is a core design concern for this starter kit. The project is intended 
 
 ## Current status
 
-This repository is currently completed through P4-A Docker PostgreSQL MVP and remains pre-v0.1.0. It contains local development backend, iOS auth, and local-only Docker/PostgreSQL code, but it is not production-ready and does not contain production configuration.
+This repository is currently completed through P5 Codex Workflow Integration and remains pre-v0.1.0. It contains local development backend, iOS auth, local-only Docker/PostgreSQL code, and AI-agent workflow guidance, but it is not production-ready and does not contain production configuration.
 
 ## Secret handling
 
@@ -31,6 +31,8 @@ Until a public security contact is established, please avoid publishing exploit 
 ## Codex and automation safety
 
 Codex, scripts, CI jobs, and other automation must not perform real-world side-effect operations without explicit human confirmation.
+
+AI-assisted changes should follow [CODEX.md](CODEX.md). Report reusable prompt patterns or automation instructions that could cause unsafe production access, credential exposure, destructive database actions, or unreviewed external side effects.
 
 Operations requiring confirmation include:
 
