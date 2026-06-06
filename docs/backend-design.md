@@ -1,6 +1,6 @@
 # Backend Design
 
-This document describes the FastAPI backend direction. P1 added a minimal runnable backend, and P3-A adds backend auth endpoints according to [auth-design.md](auth-design.md). Migrations, Docker, PostgreSQL runtime, and production concerns remain deferred.
+This document describes the FastAPI backend direction. P1 added a minimal runnable backend, P3-A added backend auth endpoints according to [auth-design.md](auth-design.md), and P4-A adds local-only Docker Compose/PostgreSQL support with Alembic migrations. Production concerns remain deferred.
 
 ## Goals
 
@@ -37,7 +37,7 @@ backend/
 └── README.md
 ```
 
-P3-A adds `models/`, `schemas/`, auth dependencies, and auth routes. Future phases may add `services/`, migrations, and broader domain modules when they are needed.
+P3-A adds `models/`, `schemas/`, auth dependencies, and auth routes. P4-A adds `alembic/`, `alembic.ini`, a backend Dockerfile, and Compose configuration. Future phases may add `services/` and broader domain modules when they are needed.
 
 ## API design
 
@@ -69,9 +69,19 @@ P3-A adds placeholder-only JWT settings such as `JWT_SECRET_KEY`, `JWT_ALGORITHM
 
 PostgreSQL is the target database. P1 includes SQLAlchemy engine/session factory helpers, but the app does not connect to a database during startup and `GET /health` works without a live database.
 
-P3-A uses SQLite for local-only auth tests and development while keeping SQLAlchemy models portable to PostgreSQL. P4 should introduce Docker Compose and PostgreSQL.
+SQLite remains the default for local-only auth tests and simple host development. P4-A adds Docker Compose PostgreSQL as an optional local development path.
 
-Migrations should be introduced before the project depends on durable PostgreSQL schema changes.
+PostgreSQL durable schema changes should use Alembic migrations. P4-A includes an initial `users` table migration. SQLite can still use lightweight `Base.metadata.create_all()` behavior for local tests and quick development.
+
+The backend supports these local URL patterns:
+
+```text
+sqlite:///./.local/ai_app_starter.db
+postgresql+psycopg://app_user:app_password@localhost:5432/ai_app_starter
+postgresql+psycopg://app_user:app_password@db:5432/ai_app_starter
+```
+
+The PostgreSQL URLs use placeholder credentials only.
 
 ## Auth structure
 
@@ -92,3 +102,5 @@ Password hashing and JWT handling should stay isolated in `core/security.py` so 
 P1 includes a pytest health check test using FastAPI `TestClient`.
 
 P3-A adds backend tests for signup, duplicate email, login, invalid login, `/users/me` with a valid token, `/users/me` without a token, and `/users/me` with an invalid token.
+
+P4-A keeps SQLite tests as the default test path. PostgreSQL integration verification is optional and local-only through Docker Compose.

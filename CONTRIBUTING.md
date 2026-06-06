@@ -2,7 +2,7 @@
 
 Thank you for your interest in contributing to `ai-app-starter-swiftui-fastapi`.
 
-This project is phase-driven. It is currently completed through P3 Auth Flow and remains pre-v0.1.0. Contributions should match the active roadmap phase and avoid presenting unfinished local-development features as production-ready.
+This project is phase-driven. It is currently completed through P4-A Docker PostgreSQL MVP and remains pre-v0.1.0. Contributions should match the active roadmap phase and avoid presenting unfinished local-development features as production-ready.
 
 ## Development principles
 

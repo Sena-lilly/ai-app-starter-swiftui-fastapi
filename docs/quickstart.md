@@ -1,6 +1,6 @@
 # Quick Start
 
-This project is currently completed through P3 Auth Flow. The backend can run locally with health and auth endpoints, and the SwiftUI app can call health, signup, login, store the access token in Keychain, restore `/users/me`, and logout. Docker setup, PostgreSQL runtime, and database migrations are still future-phase work.
+This project is currently completed through P4-A Docker PostgreSQL MVP. The backend can run locally with health and auth endpoints, the SwiftUI app can call health, signup, login, store the access token in Keychain, restore `/users/me`, and logout, and Docker Compose can run a local PostgreSQL-backed backend with Alembic migrations.
 
 ## P0 quick start
 
@@ -51,7 +51,38 @@ POST /auth/login
 GET /users/me
 ```
 
-The backend uses local-only SQLite for P3-A. PostgreSQL and Docker Compose are planned for P4.
+The backend uses local-only SQLite by default for fast tests and local host development.
+
+## P4-A Docker PostgreSQL quick start
+
+From the repository root:
+
+```bash
+cp .env.example .env
+docker compose up --build
+```
+
+In another terminal:
+
+```bash
+docker compose exec backend alembic upgrade head
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8000/health
+```
+
+For local auth verification, use fake local-only accounts against:
+
+```text
+POST http://127.0.0.1:8000/auth/signup
+POST http://127.0.0.1:8000/auth/login
+GET  http://127.0.0.1:8000/users/me
+```
+
+The Compose PostgreSQL port is bound to `127.0.0.1:5432`. Do not use production databases or real user data.
 
 ## P3 iOS quick start
 
@@ -101,7 +132,11 @@ The intended future full-stack flow is:
 6. Point the app at the local backend.
 7. Run tests before making changes.
 
-This full-stack flow will be implemented across later phases.
+P4-A introduces the backend/PostgreSQL portion of this flow. Later phases should add deeper integration review, examples, and release readiness.
+
+## Local reset warning
+
+`docker compose down` stops local containers. `docker compose down -v` deletes the local PostgreSQL volume and all local test data. Do not use volume deletion with production data or external databases.
 
 ## Safety note
 

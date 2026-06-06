@@ -54,12 +54,13 @@ This file tracks the phase roadmap for `ai-app-starter-swiftui-fastapi`.
 
 ## P4 Docker Local Setup
 
-- [ ] Add Dockerfile for backend
-- [ ] Add Docker Compose configuration
-- [ ] Add PostgreSQL local service
-- [ ] Add migration workflow
-- [ ] Add local reset instructions with safety warnings
+- [x] Add Dockerfile for backend
+- [x] Add Docker Compose configuration
+- [x] Add PostgreSQL local service
+- [x] Add migration workflow
+- [x] Add local reset instructions with safety warnings
 - [ ] Add Docker troubleshooting notes
+- [ ] Complete P4-B Docker/PostgreSQL integration review
 
 ## P5 Codex Workflow Integration
 

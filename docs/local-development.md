@@ -1,6 +1,6 @@
 # Local Development
 
-This document defines the intended local development experience. P3 includes a SwiftUI auth flow connected to the backend auth API.
+This document defines the intended local development experience. P4-A includes a SwiftUI auth flow connected to the backend auth API and optional local-only Docker PostgreSQL setup.
 
 ## Goals
 
@@ -42,7 +42,38 @@ POST http://127.0.0.1:8000/auth/login
 GET http://127.0.0.1:8000/users/me
 ```
 
-P3-A does not require PostgreSQL to be running. It uses local-only SQLite for auth development and tests. P4 will add PostgreSQL through Docker Compose.
+SQLite remains the default for fast tests and local host development. It does not require Docker or PostgreSQL.
+
+## Docker PostgreSQL workflow
+
+From the repository root:
+
+```bash
+cp .env.example .env
+docker compose up --build
+```
+
+In another terminal, run migrations:
+
+```bash
+docker compose exec backend alembic upgrade head
+```
+
+The backend service is available at:
+
+```text
+http://127.0.0.1:8000
+```
+
+The PostgreSQL service is available to the host at:
+
+```text
+127.0.0.1:5432
+```
+
+The backend container reaches PostgreSQL through the `db` hostname.
+
+Use fake local accounts only. Do not use production databases, external databases, or real user data.
 
 ## iOS workflow
 
@@ -91,14 +122,11 @@ Future iOS development should add:
 - Refresh token strategy if needed
 - Biometric auth only after explicit design
 
-## Planned Docker workflow
+## Docker reset safety
 
-Future Docker development should support:
+`docker compose down` stops the local containers.
 
-- Local PostgreSQL service
-- Optional backend service
-- Named local volumes
-- Clear reset command with warnings
+`docker compose down -v` deletes the local PostgreSQL named volume and all local test data inside it. Do not run volume deletion unless you intend to reset local test data. Never use this against production infrastructure.
 
 ## Local-only rule
 

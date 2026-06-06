@@ -41,14 +41,16 @@ _initialized_engine_ids: set[int] = set()
 
 
 def ensure_database_tables(engine: Engine) -> None:
+    if engine.url.get_backend_name() != "sqlite":
+        return
+
     engine_id = id(engine)
     if engine_id in _initialized_engine_ids:
         return
 
-    if engine.url.get_backend_name() == "sqlite":
-        database_path = engine.url.database
-        if database_path and database_path != ":memory:":
-            Path(database_path).parent.mkdir(parents=True, exist_ok=True)
+    database_path = engine.url.database
+    if database_path and database_path != ":memory:":
+        Path(database_path).parent.mkdir(parents=True, exist_ok=True)
 
     import app.models.user  # noqa: F401
 

@@ -1,6 +1,6 @@
 # Architecture
 
-This document describes the intended architecture. P3 contains a minimal backend auth implementation and connects the SwiftUI app to it; most production-facing pieces remain deferred.
+This document describes the intended architecture. P4-A contains a minimal backend auth implementation, connects the SwiftUI app to it, and adds local-only Docker Compose/PostgreSQL support with Alembic migrations; most production-facing pieces remain deferred.
 
 ## High-level view
 
@@ -51,11 +51,11 @@ The backend will be built with FastAPI. It should contain:
 
 ### PostgreSQL
 
-PostgreSQL will be the primary database. The project should use migrations once schema work begins.
+PostgreSQL is the target database for local Docker development. P4-A introduces an initial Alembic migration for the current `users` table.
 
 ### Docker Compose
 
-Docker Compose will support local development. It should not be treated as production infrastructure.
+Docker Compose supports local development with `backend` and `db` services. It should not be treated as production infrastructure.
 
 ## Boundaries
 
@@ -71,7 +71,7 @@ Configuration should be environment-driven and should not contain real secrets i
 
 The following are intentionally deferred until later phases:
 
-- PostgreSQL migration schema
-- Docker Compose configuration
+- Docker/PostgreSQL integration review
+- Production-grade database operations
 - CI configuration
 - Production deployment guidance

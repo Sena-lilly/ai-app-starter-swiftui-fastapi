@@ -2,7 +2,7 @@
 
 A production-minded starter kit for indie developers building iOS apps with SwiftUI, FastAPI, PostgreSQL, JWT authentication, Docker Compose, and Codex-friendly workflows.
 
-This repository is currently completed through **P3 Auth Flow**. It contains repository design, documentation, a minimal runnable FastAPI backend, backend signup/login/users/me auth endpoints, local-only SQLite auth tests, configuration scaffolding, and a SwiftUI app that can check backend health, log in, sign up, store an access token in Keychain, restore `/users/me`, and log out. Docker setup, PostgreSQL runtime, refresh tokens, and database migrations are intentionally deferred to later phases.
+This repository is currently completed through **P4-A Docker PostgreSQL MVP**. It contains repository design, documentation, a minimal runnable FastAPI backend, backend signup/login/users/me auth endpoints, local-only SQLite auth tests, configuration scaffolding, a SwiftUI app that can check backend health, log in, sign up, store an access token in Keychain, restore `/users/me`, and log out, plus local-only Docker Compose/PostgreSQL setup with Alembic migrations. Refresh tokens, production deployment, and release readiness are intentionally deferred to later phases.
 
 ## What is this?
 
@@ -43,12 +43,12 @@ The repository currently includes:
 - Minimal FastAPI backend under `backend/`
 - Backend auth endpoints for signup, login, and `/users/me`
 - SwiftUI app with local auth flow under `ios/`
+- Local-only Docker Compose/PostgreSQL setup
+- Minimal Alembic migration for the current `users` table
 - Prompt templates for future Codex implementation phases
 
 Future phases will add:
 
-- PostgreSQL runtime and migrations
-- Docker Compose local setup
 - iOS tests, CI/release readiness, and example app flows
 
 ## Architecture overview
@@ -67,7 +67,7 @@ FastAPI Backend
 PostgreSQL
 ```
 
-Local development will eventually use Docker Compose for PostgreSQL and backend services. The iOS app will communicate with the local backend through configurable environment settings.
+Local Docker development uses Docker Compose for PostgreSQL and the backend service. The iOS app communicates with the local backend through configurable environment settings.
 
 See [docs/architecture.md](docs/architecture.md) for the full design direction.
 
