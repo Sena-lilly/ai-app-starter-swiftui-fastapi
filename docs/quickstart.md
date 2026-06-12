@@ -1,6 +1,6 @@
 # Quick Start
 
-This project is currently completed through P8-B Release Candidate Preflight locally. The backend can run locally with health and auth endpoints, the SwiftUI app can call health, signup, login, store the access token in Keychain, restore `/users/me`, and logout, Docker Compose can run a local PostgreSQL-backed backend with Alembic migrations, Codex-safe workflow guidance is available in [../CODEX.md](../CODEX.md), and example walkthroughs are available in [../examples](../examples).
+This project is currently completed through P8-B Release Candidate Preflight plus public repo polish locally. The backend can run locally with health and auth endpoints, the SwiftUI app can call health, signup, login, store the access token in Keychain, restore `/users/me`, and logout, Docker Compose can run a local PostgreSQL-backed backend with Alembic migrations, a lightweight iOS XCTest target exists, Codex-safe workflow guidance is available in [../CODEX.md](../CODEX.md), and example walkthroughs are available in [../examples](../examples).
 
 ## P0 quick start
 
@@ -141,6 +141,7 @@ From the repository root:
 ```bash
 scripts/local-verify-backend.sh
 scripts/local-verify-ios.sh
+scripts/local-verify-ios-tests.sh
 scripts/secret-audit.sh
 ```
 
@@ -148,6 +149,12 @@ P8-B preflight shortcut:
 
 ```bash
 scripts/preflight-local.sh
+```
+
+Optional local iOS XCTest verification:
+
+```bash
+scripts/preflight-local.sh --with-ios-tests
 ```
 
 Optional local Docker verification:

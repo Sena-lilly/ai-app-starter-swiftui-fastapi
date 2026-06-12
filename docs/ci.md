@@ -33,6 +33,8 @@ It:
 - Uses read-only repository permissions.
 - Uses concurrency cancellation for repeated pushes.
 
+The repository includes a small `AiAppStarterTests` XCTest target, but CI intentionally keeps the default iOS workflow build-only until the test destination is validated on GitHub-hosted macOS runners. Local maintainers can run XCTest manually before release.
+
 ## Docs and Script Checks Workflow
 
 `.github/workflows/docs-check.yml` runs on GitHub-hosted Ubuntu.
@@ -41,6 +43,7 @@ It:
 
 - Checks shell script syntax with `bash -n`.
 - Checks repository-local Markdown links with `scripts/check-markdown-links.py`.
+- Runs `scripts/secret-audit.sh`.
 - Does not fetch external URLs.
 - Does not require secrets.
 - Does not deploy, release, or contact production systems.
@@ -64,7 +67,7 @@ scripts/preflight-local.sh --with-docker
 Future phases may add:
 
 - lint and formatting checks
-- iOS test target execution
+- iOS XCTest execution in a separate workflow or job after runner validation
 - Docker/PostgreSQL integration CI
 - dependency scanning
 

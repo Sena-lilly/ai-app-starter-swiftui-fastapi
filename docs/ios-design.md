@@ -1,6 +1,6 @@
 # iOS Design
 
-This document describes the SwiftUI app direction. The current app includes local login/signup, Keychain token storage, session restore through `/users/me`, logout, backend health checks, and release-readiness build guidance according to [auth-design.md](auth-design.md).
+This document describes the SwiftUI app direction. The current app includes local login/signup, Keychain token storage, session restore through `/users/me`, logout, backend health checks, lightweight local-only XCTest, and release-readiness build guidance according to [auth-design.md](auth-design.md).
 
 ## Goals
 
@@ -44,10 +44,15 @@ ios/
 │       │   └── LoadingStateView.swift
 │       └── Models/
 │           └── AppErrorMessage.swift
+├── AiAppStarterTests/
+│   ├── APIEndpointTests.swift
+│   ├── APIErrorTests.swift
+│   ├── AppConfigTests.swift
+│   └── DTOTests.swift
 └── README.md
 ```
 
-Future phases may add tests, refresh token behavior, and a small design system when they are needed.
+Future phases may add ViewModel tests, UI smoke tests, refresh token behavior, and a small design system when they are needed.
 
 ## App flow
 
@@ -87,6 +92,6 @@ Real devices should use the Mac's LAN IP address during local development. Produ
 
 ## Testing
 
-The repository includes a command-line Xcode build check. Future iOS work should add a test target when behavior becomes more substantial.
+The repository includes a command-line Xcode build check and a lightweight local-only XCTest target. The first tests cover endpoint URLs, config defaults, DTO decoding, and API error mapping without network calls, real Keychain writes, production URLs, signing automation, or App Store/TestFlight behavior.
 
 Release-readiness verification checks that the app builds without signing, auth request paths are wired to the expected endpoints, token handling behavior is explicit, and logout resets authenticated state.

@@ -98,6 +98,11 @@ This file tracks the phase roadmap for `ai-app-starter-swiftui-fastapi`.
 - [x] Expand backend auth/security/config/session tests
 - [x] Add docs/script CI workflow
 - [x] Add docs index and iOS testing plan
+- [x] Add README why-this-exists polish
+- [x] Add README/docs architecture diagram
+- [x] Add screenshot/demo capture guide
+- [x] Add GitHub labels draft
+- [x] Add local-only iOS XCTest target
 - [ ] Finalize README for release
 - [ ] Finalize docs for release
 - [ ] Verify no secrets or production config exist

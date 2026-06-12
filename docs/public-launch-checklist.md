@@ -13,6 +13,8 @@ Use this before announcing or linking the public repository broadly.
 - [ ] Code of conduct is present.
 - [ ] Known limitations are linked.
 - [ ] Examples are easy to find.
+- [ ] Architecture diagram renders in README/docs.
+- [ ] Screenshots are either reviewed and linked or intentionally represented by a capture guide.
 
 ## GitHub Setup
 
@@ -21,6 +23,7 @@ Use this before announcing or linking the public repository broadly.
 - [ ] Pull request template is present.
 - [ ] Actions tab shows backend and iOS workflows after push.
 - [ ] Docs/script checks are visible after push.
+- [ ] Label design is available in [maintenance/github-labels.md](maintenance/github-labels.md) or configured manually.
 - [ ] Branch protection is considered after the first public CI run.
 - [ ] No private contact information is added to templates.
 

@@ -4,23 +4,28 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 with_docker=0
+with_ios_tests=0
 
 for arg in "$@"; do
   case "$arg" in
     --with-docker)
       with_docker=1
       ;;
+    --with-ios-tests)
+      with_ios_tests=1
+      ;;
     -h|--help)
-      echo "Usage: scripts/preflight-local.sh [--with-docker]"
+      echo "Usage: scripts/preflight-local.sh [--with-docker] [--with-ios-tests]"
       echo
       echo "Runs local-only release preflight checks."
       echo "Default: secret audit, backend tests, and iOS build."
       echo "--with-docker: also runs local Docker/PostgreSQL verification."
+      echo "--with-ios-tests: also runs local XCTest on the configured simulator."
       exit 0
       ;;
     *)
       echo "Unknown argument: $arg" >&2
-      echo "Usage: scripts/preflight-local.sh [--with-docker]" >&2
+      echo "Usage: scripts/preflight-local.sh [--with-docker] [--with-ios-tests]" >&2
       exit 2
       ;;
   esac
@@ -49,6 +54,17 @@ scripts/local-verify-backend.sh
 echo
 echo "== iOS simulator build =="
 scripts/local-verify-ios.sh
+
+if [ "$with_ios_tests" -eq 1 ]; then
+  echo
+  echo "== iOS XCTest =="
+  echo "This does not sign, upload, or contact App Store/TestFlight."
+  scripts/local-verify-ios-tests.sh
+else
+  echo
+  echo "== iOS XCTest skipped =="
+  echo "Run scripts/preflight-local.sh --with-ios-tests when a local Simulator is available."
+fi
 
 if [ "$with_docker" -eq 1 ]; then
   echo

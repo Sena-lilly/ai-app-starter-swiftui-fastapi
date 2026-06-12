@@ -26,9 +26,9 @@ A known warning may appear from FastAPI/Starlette `TestClient` about future `htt
 
 The default backend tests use SQLite and do not require Docker or PostgreSQL.
 
-## iOS Build Verification
+## iOS Build and XCTest Verification
 
-The iOS verification path is a simulator build only. It does not sign, upload, or contact App Store/TestFlight services.
+The default iOS verification path is a simulator build. A small local-only XCTest target is also available for DTO, endpoint, config, and error mapping checks. Neither path signs, uploads, or contacts App Store/TestFlight services.
 
 From the repository root:
 
@@ -41,6 +41,18 @@ From the repository root:
   -derivedDataPath ios/.DerivedData \
   CODE_SIGNING_ALLOWED=NO \
   build
+```
+
+Run XCTest when a local simulator is available:
+
+```bash
+scripts/local-verify-ios-tests.sh
+```
+
+If a restricted environment cannot resolve a simulator destination, compile the test bundle without running it:
+
+```bash
+scripts/local-verify-ios-tests.sh --build-for-testing
 ```
 
 After the build, `ios/.DerivedData` may be deleted.
@@ -84,13 +96,14 @@ Convenience scripts live in `scripts/`:
 
 - `scripts/local-verify-backend.sh`
 - `scripts/local-verify-ios.sh`
+- `scripts/local-verify-ios-tests.sh`
 - `scripts/local-verify-docker.sh`
 - `scripts/secret-audit.sh`
 - `scripts/preflight-local.sh`
 
 They are local-only helpers and do not deploy, push, release, or contact production systems.
 
-`scripts/preflight-local.sh` runs secret audit, backend tests, and iOS build by default. Use `scripts/preflight-local.sh --with-docker` only when Docker is available and local Docker/PostgreSQL verification is desired.
+`scripts/preflight-local.sh` runs secret audit, backend tests, and iOS build by default. Use `scripts/preflight-local.sh --with-ios-tests` when a local simulator is available. Use `scripts/preflight-local.sh --with-docker` only when Docker is available and local Docker/PostgreSQL verification is desired.
 
 P8-B also checks shell script syntax and repository-local Markdown links during preflight.
 

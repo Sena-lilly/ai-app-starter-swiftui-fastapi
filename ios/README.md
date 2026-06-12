@@ -19,6 +19,7 @@ Included through P3:
 - API client bearer token support
 - Basic auth error handling
 - Local simulator build path
+- Local-only XCTest target for config, endpoint, DTO, and error-mapping checks
 
 Intentionally not included yet:
 
@@ -28,7 +29,6 @@ Intentionally not included yet:
 - Password reset
 - Email verification
 - OAuth or Sign in with Apple
-- iOS test target
 - App Store or TestFlight configuration
 
 ## Open the app
@@ -55,6 +55,16 @@ From the repository root:
   CODE_SIGNING_ALLOWED=NO \
   build
 ```
+
+## Run local tests
+
+Run the lightweight XCTest target when a local simulator is available:
+
+```bash
+scripts/local-verify-ios-tests.sh
+```
+
+The tests do not call the network, write real Keychain secrets, or contact App Store/TestFlight.
 
 ## Backend health and auth
 
@@ -98,6 +108,6 @@ Do not add production URLs or secrets.
 
 ## Next step
 
-P8-B release candidate preflight is complete locally. P8 final release should happen only after human review. Codex workflow guidance is available in [../CODEX.md](../CODEX.md), and example app flows are available in [../examples](../examples).
+P8-B release candidate preflight is complete locally. P8 final release should happen only after human review. Codex workflow guidance is available in [../CODEX.md](../CODEX.md), local iOS testing notes are available in [../docs/ios-testing.md](../docs/ios-testing.md), and example app flows are available in [../examples](../examples).
 
 See [../docs/ios-design.md](../docs/ios-design.md).

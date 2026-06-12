@@ -42,4 +42,6 @@ P8-A Release Preparation may happen before the actual release. It includes chang
 
 P8-B Release Candidate Preflight may happen after P8-A. It includes backend test hardening, docs/script CI checks, script hardening, docs navigation polish, and final local preflight review.
 
+A public polish pass may happen before the final tag. It includes README positioning, architecture diagrams, screenshot/demo capture guidance, GitHub issue/label drafts, and a lightweight local-only iOS XCTest target.
+
 The actual v0.1.0 tag and GitHub release remain pending until a human explicitly approves them.

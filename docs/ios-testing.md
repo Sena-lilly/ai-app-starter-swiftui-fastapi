@@ -1,6 +1,6 @@
 # iOS Testing
 
-The current iOS verification path is a command-line simulator build. A dedicated XCTest target is still pending.
+The current iOS verification path includes a command-line simulator build and a small local-only XCTest target.
 
 ## Current Check
 
@@ -18,18 +18,18 @@ This runs an unsigned simulator build with:
 
 It does not upload to App Store/TestFlight and does not require signing secrets.
 
-## Recommended XCTest Target
+## XCTest Target
 
-After v0.1.0 or during a focused P8 follow-up, add a small `AiAppStarterTests` target with local-only tests for:
+`ios/AiAppStarterTests/` contains local-only tests for:
 
 - `APIError.userMessage`
 - `APIError.isInvalidOrExpiredToken`
 - `AppConfig.localDevelopment`
 - `HealthDTO` decoding
 - `AuthResponse` decoding from snake_case JSON
-- `UserDTO` decoding from snake_case JSON
+- `APIEndpoint` URL construction
 
-Keep the first test target free of:
+The target intentionally stays free of:
 
 - network calls
 - real Keychain writes
@@ -37,17 +37,46 @@ Keep the first test target free of:
 - signing automation
 - production URLs
 
+Run tests with an available local Simulator:
+
+```bash
+xcodebuild \
+  -project ios/AiAppStarter.xcodeproj \
+  -scheme AiAppStarter \
+  -configuration Debug \
+  -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
+  -derivedDataPath ios/.DerivedData \
+  CODE_SIGNING_ALLOWED=NO \
+  test
+```
+
+If `xcodebuild test` cannot resolve a simulator in a restricted environment, verify that the test bundle still compiles with:
+
+```bash
+xcodebuild \
+  -project ios/AiAppStarter.xcodeproj \
+  -scheme AiAppStarter \
+  -configuration Debug \
+  -destination 'generic/platform=iOS Simulator' \
+  -derivedDataPath ios/.DerivedData \
+  CODE_SIGNING_ALLOWED=NO \
+  build-for-testing
+```
+
 ## Suggested CI Policy
 
-Keep CI on build-only until the test target is committed and verified on a GitHub macOS runner. After that, add `xcodebuild test` as a separate workflow or separate job so build failures and test failures are easy to distinguish.
+Keep CI on build-only until the XCTest target is verified on a GitHub macOS runner. After that, add `xcodebuild test` as a separate workflow or separate job so build failures and test failures are easy to distinguish.
 
-## Future Test Files
-
-Suggested starter files:
+## Current Test Files
 
 ```text
 ios/AiAppStarterTests/
+├── APIEndpointTests.swift
 ├── APIErrorTests.swift
 ├── AppConfigTests.swift
 └── DTOTests.swift
 ```
+
+## Future Tests
+
+Future additions can cover session view model behavior with test doubles, UI smoke checks, and Keychain abstraction behavior without storing real secrets.

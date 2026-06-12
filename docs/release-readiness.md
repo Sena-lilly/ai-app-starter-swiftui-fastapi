@@ -11,11 +11,13 @@ This project is pre-v0.1.0. Release readiness means the repository is safe, unde
 - Code of conduct is present.
 - Backend tests pass.
 - iOS simulator build passes.
+- Local-only iOS XCTest passes when a simulator is available, or `build-for-testing` passes and the simulator limitation is documented.
 - Docker/PostgreSQL local verification has been run when Docker is available.
 - Secret audit passes.
 - `.env.example` contains placeholders only.
 - Debug and localhost configuration are documented as local-only.
 - No production-ready claims are made.
+- Screenshot/demo assets are either reviewed and linked or intentionally left as a capture guide.
 - Release notes draft exists.
 - Issues are triaged or documented.
 - No GitHub release has been created without explicit human confirmation.
@@ -31,6 +33,19 @@ python3 scripts/check-markdown-links.py
 scripts/local-verify-backend.sh
 scripts/local-verify-ios.sh
 scripts/secret-audit.sh
+```
+
+Run iOS XCTest when a local simulator is available:
+
+```bash
+xcodebuild \
+  -project ios/AiAppStarter.xcodeproj \
+  -scheme AiAppStarter \
+  -configuration Debug \
+  -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
+  -derivedDataPath ios/.DerivedData \
+  CODE_SIGNING_ALLOWED=NO \
+  test
 ```
 
 Docker local verification:

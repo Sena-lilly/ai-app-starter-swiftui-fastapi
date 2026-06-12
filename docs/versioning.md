@@ -10,6 +10,7 @@ It should include:
 
 - working backend health and auth endpoints
 - working SwiftUI local auth flow
+- lightweight local-only iOS XCTest coverage
 - local-only Docker Compose/PostgreSQL setup
 - Alembic migration baseline
 - tests and CI foundation
@@ -17,6 +18,22 @@ It should include:
 - release-readiness and secret-audit guidance
 
 It does not mean production readiness.
+
+## Choosing v0.1.0 or v0.1.0-pre
+
+Use `v0.1.0` when the release candidate has:
+
+- passing backend tests
+- passing iOS build
+- passing local-only iOS XCTest, or passing `build-for-testing` with a documented simulator limitation
+- passing Docker/PostgreSQL local verification when Docker is available
+- green GitHub Actions after push
+- clean secret and generated artifact scans
+- accurate README, examples, release notes, and known limitations
+
+Use `v0.1.0-pre` when the repository is safe to inspect publicly, but one of the release confidence checks is still pending, such as GitHub Actions validation, Docker runtime verification, screenshot/demo review, or a final release-notes copy pass.
+
+Codex should not create tags or releases. A human maintainer must explicitly approve and perform release operations.
 
 ## Version Policy
 
@@ -47,4 +64,3 @@ Any release with database changes should include:
 - A warning if any Docker volume deletion is involved.
 
 Do not recommend destructive local resets without explaining impact and recovery.
-

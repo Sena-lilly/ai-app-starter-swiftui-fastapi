@@ -15,14 +15,19 @@ This project is pre-v0.1.0. Release dates are intentionally left as `TBD` until 
 - v0.1.0 draft release notes.
 - Known limitations, versioning, and public launch checklists.
 - Expanded backend auth/security/config/database tests.
+- Lightweight local-only iOS XCTest target.
 - Docs and script CI workflow.
 - Documentation index and iOS testing plan.
+- README why-this-exists section and Mermaid architecture diagram.
+- Screenshot/demo capture guidance.
+- GitHub labels draft and expanded issue update drafts.
 
 ### Changed
 
 - CI workflows hardened with read-only permissions, concurrency, and explicit build/test-only scope.
 - Local preflight now checks shell script syntax and repository-local Markdown links.
 - README and release docs clarified for public repository readiness.
+- Release decision docs now explain `v0.1.0` versus `v0.1.0-pre`.
 
 ## v0.1.0 - Planned
 
@@ -38,6 +43,7 @@ Release date: TBD
 - Local-only Docker Compose/PostgreSQL setup with Alembic migration support.
 - Codex-safe workflow guidance, prompt templates, and agent role templates.
 - Testing, CI, release-readiness, and secret-audit documentation.
+- Lightweight local-only iOS XCTest coverage.
 - Beginner-friendly examples for backend auth, iOS auth, Docker/PostgreSQL, Codex workflow, and release readiness.
 
 ### Not Included
@@ -49,7 +55,7 @@ Release date: TBD
 - OAuth.
 - Roles or permissions.
 - App Store/TestFlight workflow.
-- iOS test target.
+- UI test automation.
 
 ## pre-v0.1.0
 

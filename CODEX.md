@@ -11,6 +11,7 @@ The repository is also an implementation template for applying safe Codex develo
 ## Current Architecture
 
 - `ios/`: SwiftUI app shell with local health, signup, login, Keychain token storage, session restore, and logout.
+- `ios/AiAppStarterTests/`: local-only XCTest target for lightweight app contract checks.
 - `backend/`: FastAPI backend with health, auth, SQLAlchemy models, JWT access tokens, SQLite default tests, and Alembic migrations.
 - `docker-compose.yml`: local-only backend and PostgreSQL services.
 - `docs/`: architecture, local development, auth, backend, iOS, Codex workflow, and release planning.
@@ -18,7 +19,7 @@ The repository is also an implementation template for applying safe Codex develo
 
 ## Current Milestone Status
 
-The project is completed through P8-B Release Candidate Preflight locally and remains pre-v0.1.0.
+The project is completed through P8-B Release Candidate Preflight plus public repo polish locally and remains pre-v0.1.0.
 
 - P0 Repository Bootstrap: complete
 - P1 Backend MVP: complete
@@ -30,6 +31,7 @@ The project is completed through P8-B Release Candidate Preflight locally and re
 - P7 Examples: complete
 - P8-A Release Preparation: complete locally
 - P8-B Release Candidate Preflight: complete locally
+- P8 public repo polish: complete locally
 - P8 v0.1.0 Public Release: pending, no tag or GitHub release created
 
 This project is production-minded, but it is not production-ready yet.

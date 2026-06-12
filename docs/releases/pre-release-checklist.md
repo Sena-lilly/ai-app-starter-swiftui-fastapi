@@ -6,6 +6,7 @@ Use this checklist before any v0.1.0 tag or GitHub release is created.
 
 - [ ] Run backend tests: `scripts/local-verify-backend.sh`
 - [ ] Run iOS simulator build: `scripts/local-verify-ios.sh`
+- [ ] Run iOS XCTest locally when a simulator is available.
 - [ ] Run secret audit: `scripts/secret-audit.sh`
 - [ ] Run shell syntax check: `bash -n scripts/*.sh`
 - [ ] Run Markdown link check: `python3 scripts/check-markdown-links.py`
@@ -14,6 +15,26 @@ Use this checklist before any v0.1.0 tag or GitHub release is created.
 - [ ] Confirm Alembic migration applies with `alembic upgrade head`.
 - [ ] Confirm `GET /health` returns `status: ok`.
 - [ ] Confirm fake local auth smoke uses fake credentials only.
+
+## Release Version Decision
+
+Choose `v0.1.0` when:
+
+- [ ] Backend tests pass.
+- [ ] iOS build passes.
+- [ ] iOS XCTest passes, or `build-for-testing` passes and any simulator limitation is clearly documented.
+- [ ] Docker/PostgreSQL local verification passes when Docker is available.
+- [ ] GitHub Actions are green after push.
+- [ ] No secrets, generated artifacts, production URLs, or local DB files are present.
+- [ ] README, docs, examples, and release notes accurately describe the current scope.
+
+Choose `v0.1.0-pre` when:
+
+- [ ] GitHub Actions have not been validated yet.
+- [ ] Docker runtime verification is pending.
+- [ ] iOS XCTest target or runner behavior is still being stabilized.
+- [ ] Screenshots/demo assets are still pending and the maintainer wants a softer public signal.
+- [ ] Release notes need one more human copy/edit pass.
 
 ## Repository Hygiene
 
@@ -30,6 +51,7 @@ Use this checklist before any v0.1.0 tag or GitHub release is created.
 - [ ] Confirm backend CI workflow uses SQLite default tests only.
 - [ ] Confirm docs/script CI workflow does not fetch external URLs.
 - [ ] Confirm iOS CI workflow builds without signing.
+- [ ] Confirm iOS XCTest target exists and remains local-only.
 - [ ] Confirm workflows require no secrets.
 - [ ] Confirm Issue and PR templates are appropriate for a public repository.
 - [ ] Confirm GitHub Issues are triaged or issue update drafts are ready.

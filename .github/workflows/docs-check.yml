@@ -33,3 +33,8 @@ jobs:
       - name: Check markdown relative links
         # Repository-local link check only. External URLs are not fetched.
         run: python scripts/check-markdown-links.py
+
+      - name: Run local secret and artifact audit
+        # Filenames only are reported for high-confidence patterns. No secret
+        # values are printed and no external services are contacted.
+        run: bash scripts/secret-audit.sh

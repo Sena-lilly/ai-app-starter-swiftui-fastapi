@@ -118,11 +118,11 @@ No deployment, signing, App Store/TestFlight upload, production DB, external DB,
 ## iOS Test Issue Update Draft
 
 ```text
-iOS build verification is documented and covered by the CI foundation.
+iOS build verification is documented and covered by the CI foundation. A lightweight local-only XCTest target is now available for DTO, endpoint, config, and error-mapping checks.
 
 Future work:
-- add an iOS test target
-- add ViewModel-level tests
+- validate XCTest on GitHub-hosted macOS runners
+- add ViewModel-level tests with test doubles
 - consider UI smoke tests once the app grows
 ```
 
@@ -310,4 +310,376 @@ Acceptance criteria:
 - includes storage and rotation considerations
 - does not add production claims
 - keeps P3 access-token-only implementation clear
+```
+
+## Structured Issue Drafts for Public Polish
+
+Use these when manually updating GitHub Issues. Do not post them automatically.
+
+### P4 Issue Close Comment
+
+```text
+Title: Close P4 Docker Compose + PostgreSQL local setup
+
+Body:
+P4 is complete for local development. The repo includes backend Dockerfile support, docker-compose.yml, local PostgreSQL, Alembic initial migration, local safety docs, and fake-account verification guidance.
+
+Scope:
+- backend Dockerfile
+- docker-compose.yml
+- local PostgreSQL service
+- Alembic initial migration
+- local Docker verification docs
+
+Out of scope:
+- production Docker
+- production DB
+- deploys
+- destructive volume resets
+
+Safety notes:
+No production DB or external DB is involved. Do not run docker compose down -v unless explicitly resetting local test data.
+
+Suggested labels:
+area: docker, area: backend, area: release
+```
+
+### P5 Issue Close Comment
+
+```text
+Title: Close P5 Codex workflow integration
+
+Body:
+P5 is complete. CODEX.md, AGENTS.md, prompt templates, safety footers, and workflow docs are in place so Codex can work inside explicit local-only boundaries.
+
+Scope:
+- Codex safety rules
+- agent role templates
+- implementation/review prompts
+- handoff and release-check prompts
+
+Out of scope:
+- autonomous GitHub operations
+- deploy/release automation
+- production credentials
+
+Safety notes:
+Codex must ask for human confirmation before side-effect operations and must present target, operation details, impact scope, and rollback plan.
+
+Suggested labels:
+area: codex-workflow, area: docs, type: docs
+```
+
+### P6 Issue Close Comment
+
+```text
+Title: Close P6 Testing / Release Readiness
+
+Body:
+P6 is complete. The repo now includes backend tests, local verification scripts, secret-audit docs, CI docs, release-readiness docs, and preflight guidance.
+
+Scope:
+- backend pytest verification
+- iOS build verification
+- secret audit
+- local preflight scripts
+- GitHub Actions foundation
+
+Out of scope:
+- production deployment
+- external services
+- release creation
+
+Safety notes:
+Verification remains local/test-only and does not require production secrets or production DB access.
+
+Suggested labels:
+area: ci, area: release, area: docs
+```
+
+### P7 Issue Close Comment
+
+```text
+Title: Close P7 Examples
+
+Body:
+P7 is complete. Beginner-friendly examples now cover backend auth flow, iOS auth flow, Docker/PostgreSQL local workflow, Codex implementation/review workflow, and release readiness.
+
+Scope:
+- examples/backend-auth-flow.md
+- examples/ios-auth-flow.md
+- examples/docker-postgres-local.md
+- examples/codex-feature-implementation.md
+- examples/codex-review-workflow.md
+- examples/release-readiness-flow.md
+
+Out of scope:
+- real credentials
+- production workflows
+- deployment guides
+
+Safety notes:
+Examples use fake local accounts only and explicitly avoid external systems.
+
+Suggested labels:
+area: docs, type: docs, good first issue
+```
+
+### P8-A / P8-B Progress Comment
+
+```text
+Title: P8-A/P8-B release candidate prep complete locally
+
+Body:
+P8-A and P8-B are complete locally. The repo has release prep docs, CHANGELOG, v0.1.0 draft notes, issue/PR templates, CI hardening, backend test hardening, local preflight scripts, docs navigation, and release-candidate review guidance.
+
+Scope:
+- release preparation files
+- CI and script hardening
+- backend auth/security tests
+- public repo docs polish
+- preflight tooling
+
+Out of scope:
+- tag creation
+- GitHub Release creation
+- deploys
+- production DB or external API use
+
+Safety notes:
+No release, tag, push, deploy, App Store/TestFlight, production DB, or docker compose down -v operation should be performed by automation.
+
+Suggested labels:
+area: release, area: ci, area: docs
+```
+
+### New Issue: Prepare v0.1.0 Release
+
+```text
+Title: Prepare v0.1.0 release
+
+Body:
+Run the final release gate, verify local and GitHub checks, decide v0.1.0 vs v0.1.0-pre, and prepare final release notes.
+
+Scope:
+- backend tests
+- iOS build and local XCTest
+- Docker/PostgreSQL local verification
+- GitHub Actions green check
+- secret/artifact audit
+- release notes review
+
+Out of scope:
+- production deploy
+- App Store/TestFlight
+- production DB
+
+Safety notes:
+Tag and release creation require explicit human confirmation.
+
+Suggested labels:
+area: release, priority: p0, release
+```
+
+### New Issue: Add Screenshots and Demo GIF
+
+```text
+Title: Add screenshots and demo GIF
+
+Body:
+Capture reviewed local-only screenshots for README onboarding and optionally a short auth-flow GIF.
+
+Scope:
+- home screenshot
+- health check screenshot
+- login/signup screenshot
+- authenticated state screenshot
+- optional local GIF
+
+Out of scope:
+- external upload
+- real credentials
+- production data
+
+Safety notes:
+Use fake local accounts only. Review images for secrets, tokens, private paths, and production URLs before committing.
+
+Suggested labels:
+area: ios, area: docs, type: docs
+```
+
+### New Issue: Add iOS XCTest Target Follow-up
+
+```text
+Title: Expand iOS XCTest coverage
+
+Body:
+The initial local-only XCTest target exists. Expand it with session view model tests and test doubles after v0.1.0.
+
+Scope:
+- SessionViewModel tests
+- APIClient test doubles
+- token store abstraction tests without real Keychain writes
+
+Out of scope:
+- UI automation
+- real Keychain secrets
+- App Store/TestFlight
+
+Safety notes:
+Tests must not call network, write real secrets, or require production URLs.
+
+Suggested labels:
+area: ios, type: feature, priority: p2
+```
+
+### New Issue: Validate GitHub Actions After Push
+
+```text
+Title: Validate GitHub Actions after push
+
+Body:
+Confirm backend, iOS build, and docs/script workflows pass on GitHub-hosted runners.
+
+Scope:
+- backend-tests.yml
+- ios-build.yml
+- docs-check.yml
+- README badge validation
+
+Out of scope:
+- deploys
+- signing/upload
+- production DB
+
+Safety notes:
+Workflows must not require secrets or external production services.
+
+Suggested labels:
+area: ci, priority: p1
+```
+
+### New Issue: Add Refresh Token Roadmap
+
+```text
+Title: Add refresh token roadmap
+
+Body:
+Document future refresh-token design options without implementing them prematurely.
+
+Scope:
+- token lifetime tradeoffs
+- storage considerations
+- rotation and revocation notes
+- iOS persistence implications
+
+Out of scope:
+- implementing refresh tokens
+- production auth claims
+
+Safety notes:
+Do not add real secrets or production identity-provider configuration.
+
+Suggested labels:
+area: backend, area: ios, area: security, type: docs
+```
+
+### New Issue: Add Production Deployment Guide as Future Work
+
+```text
+Title: Add production deployment guide as future work
+
+Body:
+Create a future guide that explains what must be reviewed before production deployment.
+
+Scope:
+- deployment checklist
+- production DB requirements
+- secret management
+- observability and backups
+- rollback planning
+
+Out of scope:
+- actual deploy automation
+- production credentials
+- paid billing setup
+
+Safety notes:
+This should remain guidance only until explicitly approved.
+
+Suggested labels:
+area: docs, area: release, type: feature
+```
+
+### New Issue: Add Architecture Diagram Follow-up
+
+```text
+Title: Review architecture diagram after v0.1.0 feedback
+
+Body:
+The README and architecture docs include Mermaid diagrams. Review them after public feedback for clarity.
+
+Scope:
+- SwiftUI/API/backend/data flow
+- Codex workflow layer
+- SQLite tests vs Docker PostgreSQL local dev
+
+Out of scope:
+- production deployment diagrams
+
+Safety notes:
+Do not imply production readiness or production infrastructure.
+
+Suggested labels:
+area: docs, area: codex-workflow, type: docs
+```
+
+### New Issue: Improve README Visual Onboarding
+
+```text
+Title: Improve README visual onboarding
+
+Body:
+Use reviewed screenshots and concise copy to help first-time visitors understand the app quickly.
+
+Scope:
+- screenshot placement
+- architecture diagram placement
+- examples links
+- release readiness links
+
+Out of scope:
+- marketing claims
+- production-ready language
+
+Safety notes:
+Do not include secrets, real users, or production URLs in visuals.
+
+Suggested labels:
+area: docs, good first issue
+```
+
+### New Issue: Add Backend Lint / Format Policy
+
+```text
+Title: Add backend lint and format policy
+
+Body:
+Evaluate adding Ruff checks after v0.1.0 without broad unrelated reformatting.
+
+Scope:
+- ruff check config
+- optional format policy
+- CI integration
+- docs/testing.md update
+
+Out of scope:
+- large style-only rewrite
+- behavior changes
+
+Safety notes:
+Keep changes minimal and test-backed.
+
+Suggested labels:
+area: backend, area: ci, type: chore
 ```

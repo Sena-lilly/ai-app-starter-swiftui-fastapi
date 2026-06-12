@@ -22,7 +22,7 @@ This project is early development and pre-v0.1.0.
 
 ## iOS
 
-- No iOS test target yet.
+- The iOS XCTest target is intentionally small and does not cover UI flows or Keychain persistence yet.
 - No App Store/TestFlight workflow.
 - No multi-account session support.
 - No biometric auth.
@@ -33,6 +33,7 @@ This project is early development and pre-v0.1.0.
 - CI workflow files are present locally and must be validated on GitHub after push.
 - CI does not deploy, release, sign, upload, or use production services.
 - No enforced Ruff/SwiftFormat configuration yet.
+- README screenshots/demo GIF are prepared as a capture guide, but reviewed app screenshots are not committed yet.
 - v0.1.0 has not been released yet.
 
 ## Production Readiness

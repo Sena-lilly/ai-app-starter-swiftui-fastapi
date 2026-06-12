@@ -10,14 +10,22 @@ A production-minded starter kit for indie developers building iOS apps with Swif
 
 | Area | Status |
 | --- | --- |
-| Current phase | P8-B Release Candidate Preflight complete locally |
-| Completed through | P8-B local hardening |
+| Current phase | P8 public polish pass complete locally |
+| Completed through | P8-B hardening plus public repo polish |
 | Release state | pre-v0.1.0, no v0.1.0 tag or GitHub release yet |
 | Production state | Production-minded, not production-ready |
 | Default verification | Local backend tests, iOS simulator build, secret audit |
-| Optional verification | Local Docker/PostgreSQL smoke test |
+| Optional verification | Local iOS XCTest and Docker/PostgreSQL smoke test |
 
 This repository contains repository design, documentation, a minimal runnable FastAPI backend, backend signup/login/users/me auth endpoints, local-only SQLite auth tests, configuration scaffolding, a SwiftUI app that can check backend health, log in, sign up, store an access token in Keychain, restore `/users/me`, and log out, local-only Docker Compose/PostgreSQL setup with Alembic migrations, reusable Codex-safe workflow guidance, CI foundations, release-readiness docs, and example walkthroughs. Refresh tokens and production deployment are intentionally deferred.
+
+## Why this exists
+
+Most starter kits show how to run code. This one also shows how to let Codex and other AI coding agents modify an app stack with reviewable boundaries, local-only verification, and explicit human confirmation before risky side effects.
+
+It combines SwiftUI, FastAPI, JWT auth, Keychain token storage, Docker/PostgreSQL local development, Alembic migrations, CI foundations, and Codex-safe workflow docs in one small reference implementation. The goal is to help indie developers treat AI coding agents as development partners without letting them silently push, deploy, touch production data, create releases, or handle real secrets.
+
+This project is a safer reference starter, not a production-ready application.
 
 ## What is this?
 
@@ -60,6 +68,7 @@ The repository currently includes:
 - SwiftUI app with local auth flow under `ios/`
 - Local-only Docker Compose/PostgreSQL setup
 - Minimal Alembic migration for the current `users` table
+- Local-only iOS XCTest target for lightweight configuration, endpoint, DTO, and error-mapping checks
 - Codex-safe workflow guidance in [CODEX.md](CODEX.md)
 - AI coding agent role templates in [AGENTS.md](AGENTS.md)
 - Reusable prompt templates in [templates/](templates/)
@@ -76,30 +85,73 @@ The repository currently includes:
 - OAuth
 - Roles or permissions
 - App Store/TestFlight workflow
-- iOS test target
 - Production security audit
 
 See [docs/known-limitations.md](docs/known-limitations.md).
 
 ## Architecture overview
 
-The intended architecture is:
+```mermaid
+flowchart LR
+    subgraph IOS["SwiftUI iOS App"]
+        Home["Home"]
+        Login["Login"]
+        Signup["Signup"]
+        Client["APIClient"]
+        TokenStore["Keychain TokenStore"]
+    end
 
-```text
-SwiftUI iOS App
-      |
-      | HTTPS / JSON API
-      v
-FastAPI Backend
-      |
-      | SQLAlchemy / migrations
-      v
-PostgreSQL
+    subgraph Backend["FastAPI Backend"]
+        Health["GET /health"]
+        AuthSignup["POST /auth/signup"]
+        AuthLogin["POST /auth/login"]
+        UsersMe["GET /users/me"]
+        JWT["JWT auth"]
+        Hashing["Password hashing"]
+    end
+
+    subgraph Data["Local Data Paths"]
+        SQLAlchemy["SQLAlchemy"]
+        SQLite["SQLite default tests"]
+        Compose["Docker Compose"]
+        Postgres["Local PostgreSQL"]
+        Alembic["Alembic migration"]
+    end
+
+    subgraph Workflow["Codex-safe workflow"]
+        Codex["CODEX.md"]
+        Agents["AGENTS.md"]
+        Templates["templates/"]
+        ReleaseChecks["release readiness checks"]
+    end
+
+    Home --> Client
+    Login --> Client
+    Signup --> Client
+    Client --> Health
+    Client --> AuthSignup
+    Client --> AuthLogin
+    Client --> UsersMe
+    Client <--> TokenStore
+    AuthSignup --> Hashing
+    AuthLogin --> JWT
+    UsersMe --> JWT
+    Backend --> SQLAlchemy
+    SQLAlchemy --> SQLite
+    Compose --> Postgres
+    Alembic --> Postgres
+    SQLAlchemy --> Postgres
+    Workflow -. guides .-> IOS
+    Workflow -. reviews .-> Backend
 ```
 
 Local Docker development uses Docker Compose for PostgreSQL and the backend service. The iOS app communicates with the local backend through configurable environment settings.
 
 See [docs/architecture.md](docs/architecture.md) for the full design direction.
+
+## Screenshots and demo assets
+
+Screenshot capture is prepared in [docs/assets/screenshots/README.md](docs/assets/screenshots/README.md). README image links will be added after local simulator screenshots are captured and reviewed so the repository does not contain broken or stale visual assets.
 
 ## Quick Start
 
@@ -110,7 +162,7 @@ Current quick start:
 3. Read [docs/quickstart.md](docs/quickstart.md) for backend and iOS setup flows.
 4. Use the [docs index](docs/README.md) to navigate design, testing, CI, release, and limitation docs.
 5. Read [docs/testing.md](docs/testing.md), [docs/ci.md](docs/ci.md), and [examples/](examples/) for verification and usage examples.
-6. Run `scripts/preflight-local.sh` for local release-prep checks when your environment has backend/iOS dependencies ready.
+6. Run `scripts/preflight-local.sh` for local release-prep checks when your environment has backend/iOS dependencies ready. Add `--with-ios-tests` or `--with-docker` when those local runtimes are available.
 7. Use the templates in [templates/](templates/) when asking Codex to perform future phase work.
 
 The current runnable surfaces are the backend health/auth endpoints and the SwiftUI health/auth app flow.
@@ -120,6 +172,7 @@ The current runnable surfaces are the backend health/auth endpoints and the Swif
 - Example walkthroughs: [examples/](examples/)
 - Testing guide: [docs/testing.md](docs/testing.md)
 - iOS testing plan: [docs/ios-testing.md](docs/ios-testing.md)
+- Screenshot capture guide: [docs/assets/screenshots/README.md](docs/assets/screenshots/README.md)
 - CI guide: [docs/ci.md](docs/ci.md)
 - Secret audit: [docs/secret-audit.md](docs/secret-audit.md)
 - Release readiness: [docs/release-readiness.md](docs/release-readiness.md)

@@ -1,19 +1,69 @@
 # Architecture
 
-This document describes the current architecture and intended direction. P7 contains a minimal backend auth implementation, a SwiftUI auth flow, local-only Docker Compose/PostgreSQL support with Alembic migrations, Codex workflow guidance, CI foundations, and examples. P8-A adds release-preparation files, and P8-B adds release-candidate local preflight hardening; production-facing pieces remain deferred.
+This document describes the current architecture and intended direction. P7 contains a minimal backend auth implementation, a SwiftUI auth flow, local-only Docker Compose/PostgreSQL support with Alembic migrations, Codex workflow guidance, CI foundations, and examples. P8-A adds release-preparation files, P8-B adds release-candidate local preflight hardening, and the public polish pass adds a lightweight local-only iOS XCTest target and visual onboarding guidance. Production-facing pieces remain deferred.
 
 ## High-level view
 
-```text
-SwiftUI iOS App
-      |
-      | HTTPS / JSON
-      v
-FastAPI Backend
-      |
-      | SQLAlchemy / migrations
-      v
-PostgreSQL
+```mermaid
+flowchart TD
+    subgraph IOS["SwiftUI iOS App"]
+        Home["Home"]
+        Login["Login"]
+        Signup["Signup"]
+        Session["SessionViewModel"]
+        Client["APIClient"]
+        TokenStore["Keychain TokenStore"]
+        XCTest["AiAppStarterTests"]
+    end
+
+    subgraph API["FastAPI Backend"]
+        Health["GET /health"]
+        SignupRoute["POST /auth/signup"]
+        LoginRoute["POST /auth/login"]
+        MeRoute["GET /users/me"]
+        AuthDep["Auth dependency"]
+        Security["JWT + password hashing"]
+    end
+
+    subgraph Persistence["Persistence and Local Verification"]
+        Models["SQLAlchemy models"]
+        Alembic["Alembic initial migration"]
+        SQLite["SQLite default pytest"]
+        Compose["Docker Compose"]
+        Postgres["Local PostgreSQL"]
+    end
+
+    subgraph Workflow["Codex Workflow Layer"]
+        CODEX["CODEX.md"]
+        AGENTS["AGENTS.md"]
+        Templates["templates/"]
+        Examples["examples/"]
+        Release["release readiness checks"]
+    end
+
+    Home --> Client
+    Login --> Session
+    Signup --> Session
+    Session --> Client
+    Session <--> TokenStore
+    XCTest -. no network .-> Client
+    Client --> Health
+    Client --> SignupRoute
+    Client --> LoginRoute
+    Client --> MeRoute
+    SignupRoute --> Security
+    LoginRoute --> Security
+    MeRoute --> AuthDep
+    AuthDep --> Security
+    API --> Models
+    Models --> SQLite
+    Models --> Postgres
+    Alembic --> Postgres
+    Compose --> API
+    Compose --> Postgres
+    Workflow -. guides .-> IOS
+    Workflow -. reviews .-> API
+    Workflow -. gates .-> Release
 ```
 
 ## Local development flow
@@ -67,10 +117,11 @@ The iOS app is built with SwiftUI. It currently contains:
 - Session restore through `/users/me`
 - Logout
 - Backend health-check UI
+- Local-only XCTest target for DTO, endpoint, config, and error mapping checks
 
 Future phases should add:
 
-- iOS tests
+- ViewModel and UI smoke tests when the app surface grows
 - Refresh token behavior if needed
 
 ### Backend API
@@ -114,4 +165,4 @@ The following are intentionally deferred until later phases:
 - Production-grade database operations
 - Production deployment guidance
 - Refresh tokens, email verification, password reset, OAuth, and roles
-- iOS test target
+- App Store/TestFlight automation

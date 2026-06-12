@@ -1,6 +1,6 @@
 # Local Development
 
-This document defines the intended local development experience. P7 includes a SwiftUI auth flow connected to the backend auth API, optional local-only Docker PostgreSQL setup, CI/readiness guidance, and example walkthroughs. P8-A adds release-preparation docs, and P8-B adds release-candidate local preflight hardening.
+This document defines the intended local development experience. P7 includes a SwiftUI auth flow connected to the backend auth API, optional local-only Docker PostgreSQL setup, CI/readiness guidance, and example walkthroughs. P8-A adds release-preparation docs, P8-B adds release-candidate local preflight hardening, and the public polish pass adds lightweight iOS XCTest plus visual onboarding guidance.
 
 ## Goals
 
@@ -98,6 +98,12 @@ Build from the command line:
   build
 ```
 
+Run local-only XCTest when a simulator is available:
+
+```bash
+scripts/local-verify-ios-tests.sh
+```
+
 The simulator uses:
 
 ```text
@@ -118,7 +124,7 @@ Use fake local accounts only during development. Do not enter personal credentia
 
 Future iOS development should add:
 
-- Running basic tests
+- ViewModel-level tests and UI smoke checks as the app grows
 - Refresh token strategy if needed
 - Biometric auth only after explicit design
 
@@ -152,6 +158,7 @@ Local helper scripts live in `scripts/`:
 
 - `scripts/local-verify-backend.sh`
 - `scripts/local-verify-ios.sh`
+- `scripts/local-verify-ios-tests.sh`
 - `scripts/local-verify-docker.sh`
 - `scripts/secret-audit.sh`
 - `scripts/preflight-local.sh`
@@ -162,6 +169,12 @@ Run the default preflight before release review:
 
 ```bash
 scripts/preflight-local.sh
+```
+
+Run XCTest as part of preflight when a simulator is available:
+
+```bash
+scripts/preflight-local.sh --with-ios-tests
 ```
 
 Run Docker/PostgreSQL verification only when Docker is available:

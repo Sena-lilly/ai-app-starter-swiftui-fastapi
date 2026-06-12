@@ -24,7 +24,21 @@
 		100000000000000000000015 /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000017 /* SessionViewModel.swift */; };
 		100000000000000000000016 /* AuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000018 /* AuthDTO.swift */; };
 		100000000000000000000017 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000019 /* UserDTO.swift */; };
+		100000000000000000000101 /* AppConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000101 /* AppConfigTests.swift */; };
+		100000000000000000000102 /* APIEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000102 /* APIEndpointTests.swift */; };
+		100000000000000000000103 /* APIErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000103 /* APIErrorTests.swift */; };
+		100000000000000000000104 /* DTOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000104 /* DTOTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		300000000000000000000101 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 700000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 500000000000000000000001;
+			remoteInfo = AiAppStarter;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		200000000000000000000001 /* AiAppStarterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AiAppStarterApp.swift; sourceTree = "<group>"; };
@@ -46,10 +60,22 @@
 		200000000000000000000017 /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
 		200000000000000000000018 /* AuthDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDTO.swift; sourceTree = "<group>"; };
 		200000000000000000000019 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		200000000000000000000101 /* AppConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigTests.swift; sourceTree = "<group>"; };
+		200000000000000000000102 /* APIEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpointTests.swift; sourceTree = "<group>"; };
+		200000000000000000000103 /* APIErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorTests.swift; sourceTree = "<group>"; };
+		200000000000000000000104 /* DTOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOTests.swift; sourceTree = "<group>"; };
+		200000000000000000000105 /* AiAppStarterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AiAppStarterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		300000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		300000000000000000000102 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -63,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				400000000000000000000003 /* AiAppStarter */,
+				400000000000000000000101 /* AiAppStarterTests */,
 				400000000000000000000002 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				200000000000000000000014 /* AiAppStarter.app */,
+				200000000000000000000105 /* AiAppStarterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,6 +192,17 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		400000000000000000000101 /* AiAppStarterTests */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000101 /* AppConfigTests.swift */,
+				200000000000000000000102 /* APIEndpointTests.swift */,
+				200000000000000000000103 /* APIErrorTests.swift */,
+				200000000000000000000104 /* DTOTests.swift */,
+			);
+			path = AiAppStarterTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -184,6 +223,24 @@
 			productReference = 200000000000000000000014 /* AiAppStarter.app */;
 			productType = "com.apple.product-type.application";
 		};
+		500000000000000000000101 /* AiAppStarterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 800000000000000000000101 /* Build configuration list for PBXNativeTarget "AiAppStarterTests" */;
+			buildPhases = (
+				600000000000000000000101 /* Sources */,
+				300000000000000000000102 /* Frameworks */,
+				600000000000000000000102 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				300000000000000000000103 /* PBXTargetDependency */,
+			);
+			name = AiAppStarterTests;
+			productName = AiAppStarterTests;
+			productReference = 200000000000000000000105 /* AiAppStarterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -196,6 +253,10 @@
 				TargetAttributes = {
 					500000000000000000000001 = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					500000000000000000000101 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 500000000000000000000001;
 					};
 				};
 			};
@@ -213,12 +274,20 @@
 			projectRoot = "";
 			targets = (
 				500000000000000000000001 /* AiAppStarter */,
+				500000000000000000000101 /* AiAppStarterTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		600000000000000000000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		600000000000000000000102 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -252,7 +321,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		600000000000000000000101 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				100000000000000000000101 /* AppConfigTests.swift in Sources */,
+				100000000000000000000102 /* APIEndpointTests.swift in Sources */,
+				100000000000000000000103 /* APIErrorTests.swift in Sources */,
+				100000000000000000000104 /* DTOTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		300000000000000000000103 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 500000000000000000000001 /* AiAppStarter */;
+			targetProxy = 300000000000000000000101 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		900000000000000000000001 /* Debug */ = {
@@ -414,6 +502,58 @@
 			};
 			name = Release;
 		};
+		900000000000000000000101 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = "0.1.0";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.AiAppStarterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AiAppStarter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AiAppStarter";
+				TEST_TARGET_NAME = AiAppStarter;
+			};
+			name = Debug;
+		};
+		900000000000000000000102 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = "0.1.0";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.AiAppStarterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AiAppStarter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AiAppStarter";
+				TEST_TARGET_NAME = AiAppStarter;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -431,6 +571,15 @@
 			buildConfigurations = (
 				900000000000000000000003 /* Debug */,
 				900000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		800000000000000000000101 /* Build configuration list for PBXNativeTarget "AiAppStarterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				900000000000000000000101 /* Debug */,
+				900000000000000000000102 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,6 +7,7 @@ This is the documentation index for `ai-app-starter-swiftui-fastapi`.
 - [Quick start](quickstart.md)
 - [Local development](local-development.md)
 - [Known limitations](known-limitations.md)
+- [Screenshot capture guide](assets/screenshots/README.md)
 
 ## Architecture and Design
 
@@ -44,6 +45,7 @@ This is the documentation index for `ai-app-starter-swiftui-fastapi`.
 - [v0.1.0 draft notes](releases/v0.1.0-draft.md)
 - [Versioning](versioning.md)
 - [Public launch checklist](public-launch-checklist.md)
+- [GitHub labels draft](maintenance/github-labels.md)
 
 ## Examples
 
