@@ -1,8 +1,23 @@
 # ai-app-starter-swiftui-fastapi
 
+[![Backend Tests](https://github.com/Sena-lilly/ai-app-starter-swiftui-fastapi/actions/workflows/backend-tests.yml/badge.svg)](https://github.com/Sena-lilly/ai-app-starter-swiftui-fastapi/actions/workflows/backend-tests.yml)
+[![iOS Build](https://github.com/Sena-lilly/ai-app-starter-swiftui-fastapi/actions/workflows/ios-build.yml/badge.svg)](https://github.com/Sena-lilly/ai-app-starter-swiftui-fastapi/actions/workflows/ios-build.yml)
+[![Docs and Script Checks](https://github.com/Sena-lilly/ai-app-starter-swiftui-fastapi/actions/workflows/docs-check.yml/badge.svg)](https://github.com/Sena-lilly/ai-app-starter-swiftui-fastapi/actions/workflows/docs-check.yml)
+
 A production-minded starter kit for indie developers building iOS apps with SwiftUI, FastAPI, PostgreSQL, JWT authentication, Docker Compose, and Codex-friendly workflows.
 
-This repository is currently completed through **P5 Codex Workflow Integration**. It contains repository design, documentation, a minimal runnable FastAPI backend, backend signup/login/users/me auth endpoints, local-only SQLite auth tests, configuration scaffolding, a SwiftUI app that can check backend health, log in, sign up, store an access token in Keychain, restore `/users/me`, and log out, local-only Docker Compose/PostgreSQL setup with Alembic migrations, and reusable Codex-safe workflow guidance. Refresh tokens, production deployment, and release readiness are intentionally deferred to later phases.
+## Project status
+
+| Area | Status |
+| --- | --- |
+| Current phase | P8-B Release Candidate Preflight complete locally |
+| Completed through | P8-B local hardening |
+| Release state | pre-v0.1.0, no v0.1.0 tag or GitHub release yet |
+| Production state | Production-minded, not production-ready |
+| Default verification | Local backend tests, iOS simulator build, secret audit |
+| Optional verification | Local Docker/PostgreSQL smoke test |
+
+This repository contains repository design, documentation, a minimal runnable FastAPI backend, backend signup/login/users/me auth endpoints, local-only SQLite auth tests, configuration scaffolding, a SwiftUI app that can check backend health, log in, sign up, store an access token in Keychain, restore `/users/me`, and log out, local-only Docker Compose/PostgreSQL setup with Alembic migrations, reusable Codex-safe workflow guidance, CI foundations, release-readiness docs, and example walkthroughs. Refresh tokens and production deployment are intentionally deferred.
 
 ## What is this?
 
@@ -31,7 +46,7 @@ This project is for:
 
 This project is not intended to hide the architecture behind a black box. It should teach the shape of the stack while giving you a useful starting point.
 
-## What is included?
+## What is implemented?
 
 The repository currently includes:
 
@@ -48,10 +63,23 @@ The repository currently includes:
 - Codex-safe workflow guidance in [CODEX.md](CODEX.md)
 - AI coding agent role templates in [AGENTS.md](AGENTS.md)
 - Reusable prompt templates in [templates/](templates/)
+- Testing, CI, and release-readiness docs under [docs/](docs/)
+- Example walkthroughs under [examples/](examples/)
+- P8-A/P8-B release preparation docs, draft notes, hardening checks, and GitHub templates
 
-Future phases will add:
+## What is intentionally not included yet?
 
-- iOS tests, CI/release readiness, and example app flows
+- Production deployment
+- Refresh tokens
+- Email verification
+- Password reset
+- OAuth
+- Roles or permissions
+- App Store/TestFlight workflow
+- iOS test target
+- Production security audit
+
+See [docs/known-limitations.md](docs/known-limitations.md).
 
 ## Architecture overview
 
@@ -80,9 +108,23 @@ Current quick start:
 1. Read this README.
 2. Review [progress.md](progress.md) to understand the project phase checklist.
 3. Read [docs/quickstart.md](docs/quickstart.md) for backend and iOS setup flows.
-4. Use the templates in [templates/](templates/) when asking Codex to perform future phase work.
+4. Use the [docs index](docs/README.md) to navigate design, testing, CI, release, and limitation docs.
+5. Read [docs/testing.md](docs/testing.md), [docs/ci.md](docs/ci.md), and [examples/](examples/) for verification and usage examples.
+6. Run `scripts/preflight-local.sh` for local release-prep checks when your environment has backend/iOS dependencies ready.
+7. Use the templates in [templates/](templates/) when asking Codex to perform future phase work.
 
 The current runnable surfaces are the backend health/auth endpoints and the SwiftUI health/auth app flow.
+
+## Examples and release readiness
+
+- Example walkthroughs: [examples/](examples/)
+- Testing guide: [docs/testing.md](docs/testing.md)
+- iOS testing plan: [docs/ios-testing.md](docs/ios-testing.md)
+- CI guide: [docs/ci.md](docs/ci.md)
+- Secret audit: [docs/secret-audit.md](docs/secret-audit.md)
+- Release readiness: [docs/release-readiness.md](docs/release-readiness.md)
+- v0.1.0 draft notes: [docs/releases/v0.1.0-draft.md](docs/releases/v0.1.0-draft.md)
+- Pre-release checklist: [docs/releases/pre-release-checklist.md](docs/releases/pre-release-checklist.md)
 
 ## Repository structure
 
@@ -93,8 +135,12 @@ The current runnable surfaces are the backend health/auth endpoints and the Swif
 ├── CONTRIBUTING.md
 ├── SECURITY.md
 ├── CODE_OF_CONDUCT.md
+├── CHANGELOG.md
 ├── progress.md
+├── .github/
 ├── docs/
+├── examples/
+├── scripts/
 ├── ios/
 ├── backend/
 └── templates/
@@ -179,9 +225,9 @@ Preferred operating mode:
 
 ## Contributing
 
-Contributions are welcome once the project moves beyond bootstrap. Please read [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before opening issues or pull requests.
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before opening issues or pull requests.
 
-For now, changes should preserve the phase-based roadmap and avoid adding full implementation code before the relevant phase.
+For now, changes should preserve the phase-based roadmap, keep local-only safety clear, and avoid presenting starter-kit code as production-ready.
 
 ## License
 

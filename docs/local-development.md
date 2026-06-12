@@ -1,6 +1,6 @@
 # Local Development
 
-This document defines the intended local development experience. P4-A includes a SwiftUI auth flow connected to the backend auth API and optional local-only Docker PostgreSQL setup.
+This document defines the intended local development experience. P7 includes a SwiftUI auth flow connected to the backend auth API, optional local-only Docker PostgreSQL setup, CI/readiness guidance, and example walkthroughs. P8-A adds release-preparation docs, and P8-B adds release-candidate local preflight hardening.
 
 ## Goals
 
@@ -145,3 +145,27 @@ If local PostgreSQL test data becomes confusing, prefer creating a new fake loca
 ## Local-only rule
 
 Local development commands should not deploy, push, release, call paid services, or connect to production databases.
+
+## Verification scripts
+
+Local helper scripts live in `scripts/`:
+
+- `scripts/local-verify-backend.sh`
+- `scripts/local-verify-ios.sh`
+- `scripts/local-verify-docker.sh`
+- `scripts/secret-audit.sh`
+- `scripts/preflight-local.sh`
+
+These scripts are local-only. They do not commit, push, release, deploy, upload to App Store/TestFlight, or contact production systems.
+
+Run the default preflight before release review:
+
+```bash
+scripts/preflight-local.sh
+```
+
+Run Docker/PostgreSQL verification only when Docker is available:
+
+```bash
+scripts/preflight-local.sh --with-docker
+```

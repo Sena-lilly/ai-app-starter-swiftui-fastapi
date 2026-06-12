@@ -1,6 +1,6 @@
 # Quick Start
 
-This project is currently completed through P5 Codex Workflow Integration. The backend can run locally with health and auth endpoints, the SwiftUI app can call health, signup, login, store the access token in Keychain, restore `/users/me`, and logout, Docker Compose can run a local PostgreSQL-backed backend with Alembic migrations, and Codex-safe workflow guidance is available in [../CODEX.md](../CODEX.md).
+This project is currently completed through P8-B Release Candidate Preflight locally. The backend can run locally with health and auth endpoints, the SwiftUI app can call health, signup, login, store the access token in Keychain, restore `/users/me`, and logout, Docker Compose can run a local PostgreSQL-backed backend with Alembic migrations, Codex-safe workflow guidance is available in [../CODEX.md](../CODEX.md), and example walkthroughs are available in [../examples](../examples).
 
 ## P0 quick start
 
@@ -9,7 +9,7 @@ This project is currently completed through P5 Codex Workflow Integration. The b
 3. Read the design documents in this folder.
 4. Use the prompt templates in [../templates](../templates) for future Codex tasks.
 
-## P3-A backend quick start
+## Backend quick start
 
 From the repository root:
 
@@ -43,7 +43,7 @@ Run tests from `backend/`:
 python -m pytest
 ```
 
-P3-A auth endpoints are:
+Auth endpoints are:
 
 ```text
 POST /auth/signup
@@ -53,7 +53,7 @@ GET /users/me
 
 The backend uses local-only SQLite by default for fast tests and local host development.
 
-## P4-A Docker PostgreSQL quick start
+## Docker PostgreSQL quick start
 
 From the repository root:
 
@@ -132,7 +132,29 @@ The intended future full-stack flow is:
 6. Point the app at the local backend.
 7. Run tests before making changes.
 
-P4-A introduces the backend/PostgreSQL portion of this flow. Later phases should add deeper integration review, examples, and release readiness.
+P4 through P7 introduce the backend/PostgreSQL, Codex workflow, testing/readiness, and example portions of this flow.
+
+## Verification shortcuts
+
+From the repository root:
+
+```bash
+scripts/local-verify-backend.sh
+scripts/local-verify-ios.sh
+scripts/secret-audit.sh
+```
+
+P8-B preflight shortcut:
+
+```bash
+scripts/preflight-local.sh
+```
+
+Optional local Docker verification:
+
+```bash
+scripts/preflight-local.sh --with-docker
+```
 
 ## Local reset warning
 

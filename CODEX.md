@@ -18,7 +18,7 @@ The repository is also an implementation template for applying safe Codex develo
 
 ## Current Milestone Status
 
-The project is completed through P5 Codex Workflow Integration and remains pre-v0.1.0.
+The project is completed through P8-B Release Candidate Preflight locally and remains pre-v0.1.0.
 
 - P0 Repository Bootstrap: complete
 - P1 Backend MVP: complete
@@ -26,7 +26,11 @@ The project is completed through P5 Codex Workflow Integration and remains pre-v
 - P3 Auth Flow: complete
 - P4 Docker Local Setup: complete for local development
 - P5 Codex Workflow Integration: complete
-- P6 Release Readiness: pending
+- P6 Testing / Release Readiness: complete
+- P7 Examples: complete
+- P8-A Release Preparation: complete locally
+- P8-B Release Candidate Preflight: complete locally
+- P8 v0.1.0 Public Release: pending, no tag or GitHub release created
 
 This project is production-minded, but it is not production-ready yet.
 
@@ -139,7 +143,7 @@ When in doubt, Codex should stop and ask.
 - Do not run `git add`, `git commit`, or `git push` without explicit human instruction.
 - Do not create tags, releases, or GitHub resources without explicit human confirmation.
 - Do not change public release status or publish artifacts automatically.
-- Release work must follow `docs/release-checklist.md`.
+- Release work must follow `docs/release-checklist.md` and `docs/releases/pre-release-checklist.md`.
 
 ## How To Report Changes
 

@@ -28,12 +28,18 @@ Add more detailed Codex prompts, dry-run workflows, review checklists, role temp
 
 ## P6 Testing / Release Readiness
 
-Add broader test coverage, linting, formatting, CI guidance or configuration, and release readiness checks.
+Add broader test coverage, linting and formatting guidance, CI configuration, secret-audit guidance, local verification scripts, and release readiness checks.
 
 ## P7 Examples
 
-Add example app flows and walkthroughs showing how to extend the starter kit.
+Add example app flows and walkthroughs showing how to use and extend the starter kit.
 
 ## P8 v0.1.0 Public Release
 
 Prepare the first public release after documentation, tests, security review, and explicit human approval.
+
+P8-A Release Preparation may happen before the actual release. It includes changelog drafting, release notes drafting, GitHub templates, pre-release checklists, CI hardening, and local preflight tooling.
+
+P8-B Release Candidate Preflight may happen after P8-A. It includes backend test hardening, docs/script CI checks, script hardening, docs navigation polish, and final local preflight review.
+
+The actual v0.1.0 tag and GitHub release remain pending until a human explicitly approves them.

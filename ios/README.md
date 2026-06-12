@@ -98,6 +98,6 @@ Do not add production URLs or secrets.
 
 ## Next step
 
-P6 will add broader testing and release-readiness work. P5 Codex workflow guidance is available in [../CODEX.md](../CODEX.md).
+P8-B release candidate preflight is complete locally. P8 final release should happen only after human review. Codex workflow guidance is available in [../CODEX.md](../CODEX.md), and example app flows are available in [../examples](../examples).
 
 See [../docs/ios-design.md](../docs/ios-design.md).

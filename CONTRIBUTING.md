@@ -2,7 +2,7 @@
 
 Thank you for your interest in contributing to `ai-app-starter-swiftui-fastapi`.
 
-This project is phase-driven. It is currently completed through P5 Codex Workflow Integration and remains pre-v0.1.0. Contributions should match the active roadmap phase and avoid presenting unfinished local-development features as production-ready.
+This project is phase-driven. It is currently completed through P8-B Release Candidate Preflight locally and remains pre-v0.1.0. Contributions should match the active roadmap phase and avoid presenting unfinished local-development features as production-ready.
 
 ## Development principles
 

@@ -1,6 +1,6 @@
 # Backend Design
 
-This document describes the FastAPI backend direction. P1 added a minimal runnable backend, P3-A added backend auth endpoints according to [auth-design.md](auth-design.md), and P4-A adds local-only Docker Compose/PostgreSQL support with Alembic migrations. Production concerns remain deferred.
+This document describes the FastAPI backend direction. P1 added a minimal runnable backend, P3-A added backend auth endpoints according to [auth-design.md](auth-design.md), and P4 added local-only Docker Compose/PostgreSQL support with Alembic migrations. P6/P7 added verification docs and examples. Production concerns remain deferred.
 
 ## Goals
 
@@ -10,12 +10,18 @@ This document describes the FastAPI backend direction. P1 added a minimal runnab
 - Make tests easy to run locally.
 - Isolate configuration, database, and auth concerns.
 
-## Current P1 structure
+## Current structure
 
 The current backend structure is:
 
 ```text
 backend/
+├── Dockerfile
+├── alembic.ini
+├── alembic/
+│   ├── env.py
+│   └── versions/
+│       └── 0001_create_users.py
 ├── app/
 │   ├── __init__.py
 │   ├── main.py
@@ -23,21 +29,39 @@ backend/
 │   │   ├── __init__.py
 │   │   └── routes/
 │   │       ├── __init__.py
+│   │       ├── auth.py
+│   │       ├── users.py
 │   │       └── health.py
 │   ├── core/
 │   │   ├── __init__.py
-│   │   └── config.py
+│   │   ├── config.py
+│   │   └── security.py
 │   ├── db/
 │   │   ├── __init__.py
+│   │   ├── base.py
 │   │   └── session.py
+│   ├── dependencies/
+│   │   ├── __init__.py
+│   │   └── auth.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   └── user.py
+│   └── schemas/
+│       ├── __init__.py
+│       ├── auth.py
+│       └── user.py
 ├── tests/
 │   ├── __init__.py
-│   └── test_health.py
+│   ├── conftest.py
+│   ├── test_auth_login.py
+│   ├── test_auth_signup.py
+│   ├── test_health.py
+│   └── test_users_me.py
 ├── pyproject.toml
 └── README.md
 ```
 
-P3-A adds `models/`, `schemas/`, auth dependencies, and auth routes. P4-A adds `alembic/`, `alembic.ini`, a backend Dockerfile, and Compose configuration. Future phases may add `services/` and broader domain modules when they are needed.
+Auth work adds `models/`, `schemas/`, auth dependencies, and auth routes. Docker/PostgreSQL work adds `alembic/`, `alembic.ini`, a backend Dockerfile, and Compose configuration. Future phases may add `services/` and broader domain modules when they are needed.
 
 ## API design
 
@@ -69,9 +93,9 @@ P3-A adds placeholder-only JWT settings such as `JWT_SECRET_KEY`, `JWT_ALGORITHM
 
 PostgreSQL is the target database. P1 includes SQLAlchemy engine/session factory helpers, but the app does not connect to a database during startup and `GET /health` works without a live database.
 
-SQLite remains the default for local-only auth tests and simple host development. P4-A adds Docker Compose PostgreSQL as an optional local development path.
+SQLite remains the default for local-only auth tests and simple host development. Docker Compose PostgreSQL is an optional local development path.
 
-PostgreSQL durable schema changes should use Alembic migrations. P4-A includes an initial `users` table migration. SQLite can still use lightweight `Base.metadata.create_all()` behavior for local tests and quick development.
+PostgreSQL durable schema changes should use Alembic migrations. The repository includes an initial `users` table migration. SQLite can still use lightweight `Base.metadata.create_all()` behavior for local tests and quick development.
 
 The backend supports these local URL patterns:
 
@@ -103,4 +127,4 @@ P1 includes a pytest health check test using FastAPI `TestClient`.
 
 P3-A adds backend tests for signup, duplicate email, login, invalid login, `/users/me` with a valid token, `/users/me` without a token, and `/users/me` with an invalid token.
 
-P4-A keeps SQLite tests as the default test path. PostgreSQL integration verification is optional and local-only through Docker Compose.
+SQLite tests remain the default test path. PostgreSQL integration verification is optional and local-only through Docker Compose.

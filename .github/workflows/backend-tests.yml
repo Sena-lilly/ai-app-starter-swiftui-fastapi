@@ -1,0 +1,42 @@
+name: Backend Tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: backend-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install backend dependencies
+        run: python -m pip install -e ".[dev]"
+
+      - name: Compile backend Python
+        # Syntax/import sanity check only. No database or external services.
+        run: python -m compileall app tests
+
+      - name: Run SQLite default tests
+        # This workflow is intentionally local-test scoped: no secrets, no Docker,
+        # no PostgreSQL service, no deployment, and no production database.
+        run: python -m pytest

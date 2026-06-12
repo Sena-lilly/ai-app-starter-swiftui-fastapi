@@ -1,0 +1,31 @@
+name: Codex Workflow
+description: Suggest or review an AI-assisted development workflow.
+title: "[Codex Workflow]: "
+labels: ["codex", "workflow"]
+body:
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Workflow
+      description: What prompt, review pass, or handoff should be added or changed?
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Safety Considerations
+      description: Include side-effect risks and human confirmation needs.
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Required Guardrails
+      options:
+        - label: The workflow does not allow git push, release, deploy, or external API calls without explicit human confirmation.
+          required: true
+        - label: The workflow does not allow production DB access, real user data writes, or secret generation without explicit human confirmation.
+          required: true
+        - label: The workflow includes target, operation details, impact scope, and rollback plan before side-effect operations.
+          required: true
+

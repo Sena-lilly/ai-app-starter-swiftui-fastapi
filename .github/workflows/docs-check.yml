@@ -1,0 +1,35 @@
+name: Docs and Script Checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  docs-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Check shell script syntax
+        # Syntax-only check. No Docker, deploy, release, or external services.
+        run: bash -n scripts/*.sh
+
+      - name: Check markdown relative links
+        # Repository-local link check only. External URLs are not fetched.
+        run: python scripts/check-markdown-links.py

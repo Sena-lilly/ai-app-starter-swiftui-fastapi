@@ -72,26 +72,35 @@ This file tracks the phase roadmap for `ai-app-starter-swiftui-fastapi`.
 
 ## P6 Testing / Release Readiness
 
-- [ ] Add backend test suite
-- [ ] Add iOS test plan
-- [ ] Add linting and formatting guidance
-- [ ] Add CI design or implementation
-- [ ] Complete security checklist
-- [ ] Complete release checklist
+- [x] Add backend test suite
+- [x] Add iOS test plan
+- [x] Add linting and formatting guidance
+- [x] Add CI design or implementation
+- [x] Complete security checklist
+- [x] Complete release checklist
 
 ## P7 Examples
 
-- [ ] Add example app flow
-- [ ] Add example authenticated request
-- [ ] Add example backend endpoint
-- [ ] Add example iOS screen
-- [ ] Add example Codex task walkthrough
+- [x] Add example app flow
+- [x] Add example authenticated request
+- [x] Add example backend endpoint
+- [x] Add example iOS screen
+- [x] Add example Codex task walkthrough
 
 ## P8 v0.1.0 Public Release
 
-- [ ] Finalize README
-- [ ] Finalize docs
+- [x] P8-A Release Preparation files drafted
+- [x] Add changelog draft
+- [x] Add v0.1.0 release notes draft
+- [x] Add GitHub Issue and PR templates
+- [x] Add local preflight checklist/script
+- [x] P8-B Release Candidate Preflight local hardening
+- [x] Expand backend auth/security/config/session tests
+- [x] Add docs/script CI workflow
+- [x] Add docs index and iOS testing plan
+- [ ] Finalize README for release
+- [ ] Finalize docs for release
 - [ ] Verify no secrets or production config exist
-- [ ] Run release checklist
-- [ ] Prepare changelog
+- [ ] Run final release checklist
+- [ ] Validate GitHub Actions after push
 - [ ] Create v0.1.0 release only after explicit human confirmation

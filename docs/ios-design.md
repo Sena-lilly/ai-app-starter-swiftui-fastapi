@@ -1,6 +1,6 @@
 # iOS Design
 
-This document describes the SwiftUI app direction. P3 adds local login/signup, Keychain token storage, session restore through `/users/me`, and logout according to [auth-design.md](auth-design.md).
+This document describes the SwiftUI app direction. The current app includes local login/signup, Keychain token storage, session restore through `/users/me`, logout, backend health checks, and release-readiness build guidance according to [auth-design.md](auth-design.md).
 
 ## Goals
 
@@ -10,7 +10,7 @@ This document describes the SwiftUI app direction. P3 adds local login/signup, K
 - Store sensitive tokens with Keychain.
 - Avoid production configuration in source control.
 
-## Current P3 structure
+## Current structure
 
 The current iOS structure is:
 
@@ -61,9 +61,9 @@ The intended app flow is:
 6. Restore the session by calling `/users/me` on launch when a token exists.
 7. Logout clears Keychain token storage and local session state.
 
-## P3 auth flow
+## Auth flow
 
-The P3 iOS auth flow includes:
+The iOS auth flow includes:
 
 - Real `POST /auth/login` request handling from `LoginView`.
 - Real `POST /auth/signup` request handling from `SignupView`.
@@ -83,10 +83,10 @@ The app uses `AppConfig.localDevelopment` for the simulator backend URL:
 http://127.0.0.1:8000
 ```
 
-Real devices should use the Mac's LAN IP address during local development. Production URLs must not be added during P3.
+Real devices should use the Mac's LAN IP address during local development. Production URLs must not be added to the starter configuration.
 
 ## Testing
 
-P3 includes a command-line Xcode build check. Future iOS work should add a test target when behavior becomes more substantial.
+The repository includes a command-line Xcode build check. Future iOS work should add a test target when behavior becomes more substantial.
 
-P3-C verifies that the app builds, auth request paths are wired to the expected endpoints, token handling behavior is explicit, and logout resets authenticated state.
+Release-readiness verification checks that the app builds without signing, auth request paths are wired to the expected endpoints, token handling behavior is explicit, and logout resets authenticated state.

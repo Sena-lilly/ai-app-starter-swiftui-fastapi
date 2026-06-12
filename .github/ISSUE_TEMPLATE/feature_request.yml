@@ -1,0 +1,50 @@
+name: Feature Request
+description: Suggest a starter-kit feature or roadmap item.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What developer problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the smallest useful version.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Backend
+        - iOS
+        - Docker/PostgreSQL
+        - Testing/CI
+        - Documentation
+        - Codex workflow
+        - Release readiness
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety Checklist
+      options:
+        - label: This request does not require real secrets or production credentials.
+          required: true
+        - label: This request does not require production or external database access.
+          required: true
+        - label: This request can be reviewed locally before any external operation.
+          required: true
+

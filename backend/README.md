@@ -6,7 +6,7 @@ The backend is intentionally small: it can run locally, exposes `GET /health`, i
 
 ## Current scope
 
-Included through P4-A:
+Included in the current pre-v0.1.0 starter:
 
 - FastAPI app structure
 - `GET /health`
@@ -19,6 +19,7 @@ Included through P4-A:
 - Optional local-only PostgreSQL support through Docker Compose
 - Alembic migration for the current `users` table
 - pytest + FastAPI `TestClient` auth tests
+- Local verification scripts and CI workflow support from the repository root
 - Placeholder-only configuration through optional root `.env`
 
 Intentionally not included yet:
@@ -148,6 +149,6 @@ The included JWT secret value is a local placeholder only. Replace it outside so
 
 `docker compose down` stops local containers.
 
-`docker compose down -v` deletes the local PostgreSQL named volume and all local test data inside it. Do not run it against production infrastructure. This project does not use production databases in P4-A.
+`docker compose down -v` deletes the local PostgreSQL named volume and all local test data inside it. Do not run it against production infrastructure. This project does not include production database configuration.
 
 See [../docs/backend-design.md](../docs/backend-design.md).

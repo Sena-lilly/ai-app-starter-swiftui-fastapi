@@ -4,7 +4,7 @@ Security is a core design concern for this starter kit. The project is intended 
 
 ## Current status
 
-This repository is currently completed through P5 Codex Workflow Integration and remains pre-v0.1.0. It contains local development backend, iOS auth, local-only Docker/PostgreSQL code, and AI-agent workflow guidance, but it is not production-ready and does not contain production configuration.
+This repository is currently completed through P8-B Release Candidate Preflight locally and remains pre-v0.1.0. It contains local development backend, iOS auth, local-only Docker/PostgreSQL code, AI-agent workflow guidance, CI/release-readiness docs, examples, release-prep drafts, and local hardening checks, but it is not production-ready and does not contain production configuration.
 
 ## Secret handling
 
