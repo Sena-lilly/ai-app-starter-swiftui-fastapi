@@ -30,7 +30,7 @@ This project is early development and pre-v0.1.0.
 
 ## CI / Release
 
-- CI workflow files are present locally and must be validated on GitHub after push.
+- CI workflow files have been validated for the current release candidate, but should be rechecked after future workflow changes.
 - CI does not deploy, release, sign, upload, or use production services.
 - No enforced Ruff/SwiftFormat configuration yet.
 - README screenshots/demo GIF are prepared as a capture guide, but reviewed app screenshots are not committed yet.
