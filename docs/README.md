@@ -43,9 +43,14 @@ This is the documentation index for `ai-app-starter-swiftui-fastapi`.
 - [Release checklist](release-checklist.md)
 - [Pre-release checklist](releases/pre-release-checklist.md)
 - [v0.1.0 draft notes](releases/v0.1.0-draft.md)
+- [Manual release steps](releases/manual-release-steps.md)
+- [Post-release update draft](releases/post-release-update-draft.md)
 - [Versioning](versioning.md)
 - [Public launch checklist](public-launch-checklist.md)
 - [GitHub labels draft](maintenance/github-labels.md)
+- [GitHub issue update drafts](maintenance/github-issue-updates.md)
+- [Codex for OSS updated submission draft](maintenance/codex-for-oss-updated-submission.md)
+- [Public announcement drafts](maintenance/public-announcement-drafts.md)
 
 ## Examples
 
