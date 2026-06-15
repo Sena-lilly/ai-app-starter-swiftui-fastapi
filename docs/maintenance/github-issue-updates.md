@@ -683,3 +683,101 @@ Keep changes minimal and test-backed.
 Suggested labels:
 area: backend, area: ci, type: chore
 ```
+
+## P8-G/H Release Execution Prep Drafts
+
+Use these after a human maintainer has reviewed the final release package. Do not post them from Codex.
+
+### P8-G Release Execution Prep Comment
+
+```text
+Title: P8-G release execution prep complete
+
+Body:
+P8-G release execution prep is complete locally.
+
+Included:
+- GitHub-ready v0.1.0 release notes draft
+- manual release steps
+- release preconditions and rollback notes
+- post-release README/CHANGELOG/progress update draft
+- Codex for OSS updated submission package
+- public announcement drafts
+
+Out of scope:
+- creating the git tag
+- creating the GitHub Release
+- pushing commits or tags
+- deploying anything
+
+Safety notes:
+All release operations remain human-only and require explicit confirmation.
+
+Suggested labels:
+area: release, area: docs, type: chore
+```
+
+### Prepare v0.1.0 Release Issue Close Comment
+
+```text
+Title: Close P8 prepare v0.1.0 release
+
+Body:
+v0.1.0 has been published by the human maintainer.
+
+Included:
+- SwiftUI app shell and auth flow
+- Keychain token storage
+- FastAPI `/health`, signup, login, and `/users/me`
+- JWT auth and password hashing
+- SQLite default tests
+- Docker Compose/PostgreSQL local development
+- Alembic initial migration
+- GitHub Actions CI foundation
+- Codex-safe workflow docs/templates
+- examples and release-readiness docs
+- GitHub issue/PR templates
+- lightweight iOS XCTest foundation
+
+Not included:
+- production deployment
+- refresh tokens
+- email verification/password reset
+- OAuth/roles
+- App Store/TestFlight automation
+- production DB configuration
+- production security audit
+
+Follow-ups remain open for screenshots/demo assets, iOS XCTest expansion, refresh token roadmap, and production deployment documentation.
+
+Safety notes:
+The release is production-minded, not production-ready. No production systems or real secrets were used for release verification.
+
+Suggested labels:
+area: release, type: chore
+```
+
+### Codex for OSS Updated Submission Note
+
+```text
+Title: Submit updated Codex for OSS note after v0.1.0
+
+Body:
+Use docs/maintenance/codex-for-oss-updated-submission.md as the source for a human-reviewed updated submission.
+
+Scope:
+- summarize progress since initial application
+- mention Docker/PostgreSQL, Alembic, CI, examples, release readiness, GitHub templates, and iOS XCTest foundation
+- explain why Codex Security and API credits would help
+
+Out of scope:
+- automated submission
+- GitHub API calls
+- changing repository release state
+
+Safety notes:
+Review manually before sending. Do not include secrets, private data, or unsupported production-readiness claims.
+
+Suggested labels:
+area: codex-workflow, area: release, type: docs
+```

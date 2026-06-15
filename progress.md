@@ -108,4 +108,5 @@ This file tracks the phase roadmap for `ai-app-starter-swiftui-fastapi`.
 - [x] Verify no secrets or production config exist
 - [x] Run final release checklist
 - [x] Validate GitHub Actions after push
+- [x] Prepare manual release steps and post-release update drafts
 - [ ] Create v0.1.0 release only after explicit human confirmation
