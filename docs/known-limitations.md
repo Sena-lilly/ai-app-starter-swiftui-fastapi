@@ -1,6 +1,6 @@
 # Known Limitations
 
-This project is early development and pre-v0.1.0.
+This project is early development after the v0.1.0 baseline release.
 
 ## Auth
 
@@ -34,7 +34,7 @@ This project is early development and pre-v0.1.0.
 - CI does not deploy, release, sign, upload, or use production services.
 - No enforced Ruff/SwiftFormat configuration yet.
 - README screenshots/demo GIF are prepared as a capture guide, but reviewed app screenshots are not committed yet.
-- v0.1.0 has not been released yet.
+- v0.1.0 is released, but this does not imply production readiness.
 
 ## Production Readiness
 

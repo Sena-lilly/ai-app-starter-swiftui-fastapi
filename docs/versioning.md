@@ -1,10 +1,10 @@
 # Versioning
 
-This project is currently pre-v0.1.0.
+This project has published the v0.1.0 baseline and remains pre-1.0.
 
 ## Intended Meaning of v0.1.0
 
-`v0.1.0` should mean the repository is safe to publish and useful as an early starter kit for local development.
+`v0.1.0` means the repository is safe to publish and useful as an early starter kit for local development.
 
 It should include:
 

@@ -2,9 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
-This project is pre-v0.1.0. Release dates are intentionally left as `TBD` until a release is actually created by a human maintainer.
+This project is production-minded, not production-ready.
 
 ## Unreleased
+
+### Fixed
+
+- Stabilized post-release docs/script verification after the v0.1.0 release.
+
+## v0.1.0 - 2026-06-28
 
 ### Added
 
@@ -12,7 +18,7 @@ This project is pre-v0.1.0. Release dates are intentionally left as `TBD` until 
 - P8-B release candidate preflight hardening.
 - GitHub Issue templates and pull request template.
 - Local preflight script that runs secret audit, backend tests, iOS build, and optional Docker verification.
-- v0.1.0 draft release notes.
+- v0.1.0 release notes source/archive.
 - Known limitations, versioning, and public launch checklists.
 - Expanded backend auth/security/config/database tests.
 - Lightweight local-only iOS XCTest target.
@@ -28,23 +34,6 @@ This project is pre-v0.1.0. Release dates are intentionally left as `TBD` until 
 - Local preflight now checks shell script syntax and repository-local Markdown links.
 - README and release docs clarified for public repository readiness.
 - Release decision docs now explain `v0.1.0` versus `v0.1.0-pre`.
-
-## v0.1.0 - Planned
-
-Release date: TBD
-
-### Planned Highlights
-
-- Repository bootstrap and phase-based roadmap.
-- FastAPI backend with `GET /health`.
-- Backend signup, login, and `/users/me` auth flow with JWT access tokens.
-- SQLite default backend tests for fast local verification.
-- SwiftUI iOS app shell with health check, signup, login, Keychain access token storage, session restore, and logout.
-- Local-only Docker Compose/PostgreSQL setup with Alembic migration support.
-- Codex-safe workflow guidance, prompt templates, and agent role templates.
-- Testing, CI, release-readiness, and secret-audit documentation.
-- Lightweight local-only iOS XCTest coverage.
-- Beginner-friendly examples for backend auth, iOS auth, Docker/PostgreSQL, Codex workflow, and release readiness.
 
 ### Not Included
 

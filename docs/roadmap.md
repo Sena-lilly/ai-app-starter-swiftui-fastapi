@@ -36,7 +36,7 @@ Add example app flows and walkthroughs showing how to use and extend the starter
 
 ## P8 v0.1.0 Public Release
 
-Prepare the first public release after documentation, tests, security review, and explicit human approval.
+Prepare and publish the first public release after documentation, tests, security review, and explicit human approval.
 
 P8-A Release Preparation may happen before the actual release. It includes changelog drafting, release notes drafting, GitHub templates, pre-release checklists, CI hardening, and local preflight tooling.
 
@@ -44,4 +44,6 @@ P8-B Release Candidate Preflight may happen after P8-A. It includes backend test
 
 A public polish pass may happen before the final tag. It includes README positioning, architecture diagrams, screenshot/demo capture guidance, GitHub issue/label drafts, and a lightweight local-only iOS XCTest target.
 
-The actual v0.1.0 tag and GitHub release remain pending until a human explicitly approves them.
+The v0.1.0 tag and GitHub release were published by a human maintainer on 2026-06-28.
+
+Post-release stabilization should keep GitHub Actions green, sync docs with the release state, and prepare follow-up issues without changing the production-minded, not production-ready positioning.

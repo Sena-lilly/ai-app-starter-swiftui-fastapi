@@ -2,7 +2,7 @@
 
 This document describes the current local verification strategy for `ai-app-starter-swiftui-fastapi`.
 
-The project remains pre-v0.1.0 and production-minded, not production-ready.
+The project has published v0.1.0 and remains production-minded, not production-ready.
 
 ## Backend Tests
 

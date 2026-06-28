@@ -1,6 +1,6 @@
 # Codex for OSS Updated Submission Draft
 
-Use this draft after `v0.1.0` is published, if the maintainer wants to send an updated Codex for OSS submission or supplemental note.
+Use this draft after the `v0.1.0` release, if the maintainer wants to send an updated Codex for OSS submission or supplemental note.
 
 Do not submit this automatically from Codex. A human maintainer should review, edit, and send it manually.
 
@@ -8,7 +8,7 @@ Do not submit this automatically from Codex. A human maintainer should review, e
 
 This is an updated submission for `ai-app-starter-swiftui-fastapi`.
 
-Since my initial application, I expanded the repository into a stronger public baseline for a SwiftUI + FastAPI app starter designed for safe AI-agent-assisted development. The project now includes Docker/PostgreSQL local development, Alembic migrations, GitHub Actions CI workflows, release-readiness docs, issue and pull request templates, example walkthroughs, Codex workflow templates, a lightweight iOS XCTest foundation, and a v0.1.0 release preparation package.
+Since my initial application, I expanded the repository into a v0.1.0 public baseline for a SwiftUI + FastAPI app starter designed for safe AI-agent-assisted development. The project now includes Docker/PostgreSQL local development, Alembic migrations, GitHub Actions CI workflows, release-readiness docs, issue and pull request templates, example walkthroughs, Codex workflow templates, a lightweight iOS XCTest foundation, and a published v0.1.0 release.
 
 The repository is production-minded, not production-ready. Its value is that it gives future indie developers a realistic app stack and a reusable safety pattern for working with Codex or other AI coding agents without silently pushing, deploying, touching production data, or handling real secrets.
 
@@ -16,7 +16,7 @@ The repository is production-minded, not production-ready. Its value is that it 
 
 これは `ai-app-starter-swiftui-fastapi` の更新応募文です。
 
-初回応募後、このリポジトリを SwiftUI + FastAPI アプリスターターとして、より強い公開ベースラインまで拡張しました。現在は Docker/PostgreSQL のローカル開発、Alembic migrations、GitHub Actions CI、release readiness docs、Issue/PR templates、example walkthroughs、Codex workflow templates、軽量な iOS XCTest foundation、v0.1.0 release preparation package を含んでいます。
+初回応募後、このリポジトリを SwiftUI + FastAPI アプリスターターとして、v0.1.0 の公開ベースラインまで拡張しました。現在は Docker/PostgreSQL のローカル開発、Alembic migrations、GitHub Actions CI、release readiness docs、Issue/PR templates、example walkthroughs、Codex workflow templates、軽量な iOS XCTest foundation、公開済み v0.1.0 release を含んでいます。
 
 このリポジトリは production-minded ですが、production-ready ではありません。価値は、将来の個人開発者に現実的なアプリ構成と、Codex や他の AI coding agents を安全に使うための再利用可能なパターンを提供する点にあります。Codex が勝手に push、deploy、本番データ操作、real secrets の取り扱いをしないように設計しています。
 
@@ -96,8 +96,16 @@ The project is deliberately honest about its limitations. It does not claim to b
 
 ## Short Version
 
-Since my initial Codex for OSS application, `ai-app-starter-swiftui-fastapi` has grown into a v0.1.0-ready public baseline: SwiftUI auth flow, FastAPI JWT backend, Docker/PostgreSQL local dev, Alembic, CI, release-readiness docs, examples, GitHub templates, and Codex-safe workflow templates. It is production-minded, not production-ready, and focuses on reusable safety patterns for indie developers using AI coding agents.
+Since my initial Codex for OSS application, `ai-app-starter-swiftui-fastapi` has shipped v0.1.0: SwiftUI auth flow, FastAPI JWT backend, Docker/PostgreSQL local dev, Alembic, CI, release-readiness docs, examples, GitHub templates, iOS XCTest foundation, and Codex-safe workflow templates. It is production-minded, not production-ready, and focuses on reusable safety patterns for indie developers using AI coding agents.
 
 ### Japanese Translation
 
-初回の Codex for OSS 応募後、`ai-app-starter-swiftui-fastapi` は v0.1.0-ready な public baseline まで成長しました。SwiftUI auth flow、FastAPI JWT backend、Docker/PostgreSQL local dev、Alembic、CI、release-readiness docs、examples、GitHub templates、Codex-safe workflow templates を含みます。production-minded ですが production-ready ではなく、AI coding agents を使う個人開発者向けの再利用可能な安全パターンに重点を置いています。
+初回の Codex for OSS 応募後、`ai-app-starter-swiftui-fastapi` は v0.1.0 を公開しました。SwiftUI auth flow、FastAPI JWT backend、Docker/PostgreSQL local dev、Alembic、CI、release-readiness docs、examples、GitHub templates、iOS XCTest foundation、Codex-safe workflow templates を含みます。production-minded ですが production-ready ではなく、AI coding agents を使う個人開発者向けの再利用可能な安全パターンに重点を置いています。
+
+## 500 Characters or Less
+
+`ai-app-starter-swiftui-fastapi` has shipped v0.1.0: a production-minded, not production-ready SwiftUI + FastAPI starter for indie developers using AI coding agents. It includes JWT auth, Keychain token storage, Docker/PostgreSQL local dev, Alembic, CI, examples, issue/PR templates, iOS XCTest foundation, release-readiness docs, and Codex-safe workflow templates.
+
+### Japanese Translation
+
+`ai-app-starter-swiftui-fastapi` は v0.1.0 を公開しました。AI coding agents を使う個人開発者向けの SwiftUI + FastAPI starter です。JWT auth、Keychain token storage、Docker/PostgreSQL local dev、Alembic、CI、examples、Issue/PR templates、iOS XCTest foundation、release-readiness docs、Codex-safe workflow templates を含みます。

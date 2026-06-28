@@ -2,6 +2,62 @@
 
 These are copy/paste drafts for humans. Do not post them automatically.
 
+## v0.1.0 Release Issue Close Comment Draft
+
+```text
+v0.1.0 has been published.
+
+Included:
+- SwiftUI app shell and auth flow
+- Keychain token storage
+- FastAPI health/auth/users endpoints
+- JWT auth and password hashing
+- SQLite default tests
+- Docker Compose/PostgreSQL local development
+- Alembic initial migration
+- GitHub Actions CI foundation
+- Codex-safe workflow docs/templates
+- examples and release-readiness docs
+- GitHub issue/PR templates
+- lightweight iOS XCTest foundation
+
+Not included:
+- production deployment
+- refresh tokens
+- email verification/password reset
+- OAuth/roles
+- App Store/TestFlight automation
+- production DB configuration
+- production security audit
+
+Closing this release-prep issue. Follow-up issues remain open for screenshots/demo assets, iOS XCTest expansion, refresh token roadmap, production deployment documentation, and post-v0.1.0 stabilization.
+```
+
+## Docs Check Fix Update Draft
+
+```text
+Docs and Script Checks were reproduced locally with:
+
+- bash -n scripts/*.sh
+- bash scripts/secret-audit.sh
+- python3 scripts/check-markdown-links.py
+
+The local checks now pass. One local failure mode was confirmed: running Python compile checks can create scripts/__pycache__, and the secret/artifact audit correctly fails until that generated artifact is removed. The workflow itself remains local-only and does not deploy, release, sign, upload, or use secrets.
+```
+
+## Remaining Open Issue Drafts After v0.1.0
+
+```text
+Keep or create follow-up issues for:
+
+- Add real screenshots and a lightweight demo GIF
+- Expand iOS XCTest execution and coverage
+- Design refresh token roadmap
+- Add production deployment guide as future work
+- Post-v0.1.0 stabilization
+- Keep GitHub Actions green after docs/check updates
+```
+
 ## P4 Issue Close Comment Draft
 
 ```text
@@ -431,7 +487,7 @@ area: docs, type: docs, good first issue
 Title: P8-A/P8-B release candidate prep complete locally
 
 Body:
-P8-A and P8-B are complete locally. The repo has release prep docs, CHANGELOG, v0.1.0 draft notes, issue/PR templates, CI hardening, backend test hardening, local preflight scripts, docs navigation, and release-candidate review guidance.
+P8-A and P8-B are complete. The repo has release prep docs, CHANGELOG, v0.1.0 release notes source, issue/PR templates, CI hardening, backend test hardening, local preflight scripts, docs navigation, and release-candidate review guidance.
 
 Scope:
 - release preparation files

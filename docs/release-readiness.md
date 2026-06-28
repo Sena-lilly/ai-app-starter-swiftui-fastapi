@@ -1,6 +1,6 @@
 # Release Readiness
 
-This project is pre-v0.1.0. Release readiness means the repository is safe, understandable, locally verifiable, and honest about what is not production-ready.
+This project has published the v0.1.0 baseline. Release readiness still means the repository is safe, understandable, locally verifiable, and honest about what is not production-ready.
 
 ## Required Checks
 
@@ -18,9 +18,9 @@ This project is pre-v0.1.0. Release readiness means the repository is safe, unde
 - Debug and localhost configuration are documented as local-only.
 - No production-ready claims are made.
 - Screenshot/demo assets are either reviewed and linked or intentionally left as a capture guide.
-- Release notes draft exists.
+- Release notes source exists.
 - Issues are triaged or documented.
-- No GitHub release has been created without explicit human confirmation.
+- No GitHub release or future release operation is created without explicit human confirmation.
 - `CHANGELOG.md` is current.
 - P8-A release preparation docs are reviewed.
 - P8-B release candidate checks are reviewed.

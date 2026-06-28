@@ -10,9 +10,9 @@ A production-minded starter kit for indie developers building iOS apps with Swif
 
 | Area | Status |
 | --- | --- |
-| Current phase | P8 public polish pass complete locally |
-| Completed through | P8-B hardening plus public repo polish |
-| Release state | pre-v0.1.0, no v0.1.0 tag or GitHub release yet |
+| Current phase | v0.1.0 released; post-release stabilization |
+| Completed through | P8 v0.1.0 Public Release |
+| Release state | v0.1.0 published on 2026-06-28 |
 | Production state | Production-minded, not production-ready |
 | Default verification | Local backend tests, iOS simulator build, secret audit |
 | Optional verification | Local iOS XCTest and Docker/PostgreSQL smoke test |
@@ -74,7 +74,7 @@ The repository currently includes:
 - Reusable prompt templates in [templates/](templates/)
 - Testing, CI, and release-readiness docs under [docs/](docs/)
 - Example walkthroughs under [examples/](examples/)
-- P8-A/P8-B release preparation docs, draft notes, hardening checks, and GitHub templates
+- v0.1.0 release notes, hardening checks, and GitHub templates
 
 ## What is intentionally not included yet?
 
@@ -176,7 +176,7 @@ The current runnable surfaces are the backend health/auth endpoints and the Swif
 - CI guide: [docs/ci.md](docs/ci.md)
 - Secret audit: [docs/secret-audit.md](docs/secret-audit.md)
 - Release readiness: [docs/release-readiness.md](docs/release-readiness.md)
-- v0.1.0 draft notes: [docs/releases/v0.1.0-draft.md](docs/releases/v0.1.0-draft.md)
+- v0.1.0 release notes source: [docs/releases/v0.1.0-draft.md](docs/releases/v0.1.0-draft.md)
 - Pre-release checklist: [docs/releases/pre-release-checklist.md](docs/releases/pre-release-checklist.md)
 
 ## Repository structure

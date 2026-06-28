@@ -2,6 +2,8 @@
 
 This document is a human-run checklist for publishing `v0.1.0`.
 
+Status: `v0.1.0` was published by a human maintainer on 2026-06-28. Keep this document as a human-only reference for future patch releases and for understanding the release process used for v0.1.0.
+
 Codex must not create tags, push tags, create GitHub releases, publish artifacts, deploy, or operate GitHub Issues/Labels. These steps are instructions for a human maintainer only.
 
 ## Preconditions

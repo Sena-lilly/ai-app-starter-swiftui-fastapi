@@ -1,10 +1,10 @@
-# Post-Release Update Draft
+# Post-Release Update Record
 
-Use this file after a human maintainer publishes `v0.1.0`.
+`v0.1.0` has been published by a human maintainer.
 
-Do not apply these edits before the release exists.
+This file now records the post-release updates that have been applied or remain as follow-up work.
 
-## `progress.md` Draft
+## Applied `progress.md` Update
 
 ```markdown
 ## P8 v0.1.0 Public Release
@@ -31,34 +31,22 @@ Do not apply these edits before the release exists.
 - [x] Create v0.1.0 release after explicit human confirmation
 ```
 
-## `CHANGELOG.md` Draft
+## Applied `CHANGELOG.md` Update
 
-Move the current `v0.1.0 - Planned` content to:
-
-```markdown
-## v0.1.0 - YYYY-MM-DD
-```
-
-Use the actual release date. Move relevant `Unreleased` items into the `v0.1.0` section, then leave a fresh empty `Unreleased` section:
+`CHANGELOG.md` now includes:
 
 ```markdown
-## Unreleased
-
-### Added
-
-### Changed
-
-### Fixed
+## v0.1.0 - 2026-06-28
 ```
 
-## `README.md` Status Draft
+Future changes should be recorded under `Unreleased`.
 
-Update the status table after release:
+## Applied `README.md` Status Update
 
 ```markdown
 | Current phase | v0.1.0 released |
 | Completed through | P8 v0.1.0 Public Release |
-| Release state | v0.1.0 published |
+| Release state | v0.1.0 published on 2026-06-28 |
 | Production state | Production-minded, not production-ready |
 ```
 
